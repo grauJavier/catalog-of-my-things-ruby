@@ -35,6 +35,12 @@ in the future to storage the data.
   </ul>
 </details>
 
+<details>
+<summary>Database</summary>
+  <ul>
+    <li><a href="https://www.postgresql.org/">PostgreSQL</a></li>
+  </ul>
+</details>
 
 ### Key Features <a name="key-features"></a>
 
@@ -84,7 +90,7 @@ Clone this repository to your desired folder:
 To run the project, execute the following command:
 
 ```sh
-  ./main.rb 
+  ruby main.rb 
 ```
 And start following the indications on the screen
 
