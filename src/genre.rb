@@ -1,4 +1,4 @@
-require_relative '../item'
+require_relative 'item'
 
 class Genre
   attr_accessor :genre_name
@@ -15,11 +15,5 @@ class Genre
 
     @items << item
     item.genre = self
-  end
-
-  def to_json(_option = {})
-    {
-      genre_name: @genre_name
-    }
   end
 end

@@ -1,12 +1,13 @@
-require_relative '../item'
+require_relative 'item'
 
-class Source
-  attr_accessor :source_name
-  attr_reader :id, :items
+class Label
+  attr_accessor :title, :color
+  attr_reader :items, :id
 
-  def initialize(source_name)
+  def initialize(title, color)
     @id = rand(1..1000)
-    @source_name = source_name
+    @title = title
+    @color = color
     @items = []
   end
 
@@ -14,6 +15,6 @@ class Source
     raise TypeError, 'Invalid type, must be an Item instance' unless item.is_a?(Item)
 
     @items << item
-    item.genre = self
+    item.label = self
   end
 end

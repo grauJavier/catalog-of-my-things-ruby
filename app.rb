@@ -1,10 +1,11 @@
-require_relative 'javier/author'
-require_relative 'javier/genre'
-require_relative 'javier/label'
-require_relative 'javier/source'
+require_relative 'src/author'
+require_relative 'src/genre'
+require_relative 'src/label'
+require_relative 'src/source'
+require_relative 'src/item'
 
-require_relative 'javier/music_album'
-require_relative 'javier/preserve_music_albums'
+require_relative 'src/music_album/music_album'
+require_relative 'src/music_album/preserve_music_albums'
 
 class App
   attr_accessor :music_albums
