@@ -1,18 +1,180 @@
 [
   {
     "genre": {
+      "genre_name": "Rock"
+    },
+    "author": {
+      "first_name": "Radiohead",
+      "last_name": ""
+    },
+    "source": {
+      "source_name": "CD"
+    },
+    "label": {
+      "title": "The Bends",
+      "color": "Black"
+    },
+    "publish_date": 1995,
+    "on_spotify": true
+  },
+  {
+    "genre": {
+      "genre_name": "Rock"
+    },
+    "author": {
+      "first_name": "Nirvana",
+      "last_name": ""
+    },
+    "source": {
+      "source_name": "CD"
+    },
+    "label": {
+      "title": "Nevermind",
+      "color": "Blue"
+    },
+    "publish_date": 1991,
+    "on_spotify": true
+  },
+  {
+    "genre": {
+      "genre_name": "Pop"
+    },
+    "author": {
+      "first_name": "Madonna",
+      "last_name": ""
+    },
+    "source": {
+      "source_name": "CD"
+    },
+    "label": {
+      "title": "The Immaculate Collection",
+      "color": "Red"
+    },
+    "publish_date": 1990,
+    "on_spotify": true
+  },
+  {
+    "genre": {
+      "genre_name": "Rap"
+    },
+    "author": {
+      "first_name": "Ice Cube",
+      "last_name": ""
+    },
+    "source": {
+      "source_name": "CD"
+    },
+    "label": {
+      "title": "AmeriKKKa's Most Wanted",
+      "color": "Green"
+    },
+    "publish_date": 1990,
+    "on_spotify": true
+  },
+  {
+    "genre": {
+      "genre_name": "Rock"
+    },
+    "author": {
+      "first_name": "Depeche Mode",
+      "last_name": ""
+    },
+    "source": {
+      "source_name": "CD"
+    },
+    "label": {
+      "title": "Violator",
+      "color": "Purple"
+    },
+    "publish_date": 1990,
+    "on_spotify": true
+  },
+  {
+    "genre": {
+      "genre_name": "Rock"
+    },
+    "author": {
+      "first_name": "The Rolling Stones",
+      "last_name": ""
+    },
+    "source": {
+      "source_name": "CD"
+    },
+    "label": {
+      "title": "Steel Wheels",
+      "color": "Silver"
+    },
+    "publish_date": 1989,
+    "on_spotify": true
+  },
+  {
+    "genre": {
+      "genre_name": "Pop"
+    },
+    "author": {
+      "first_name": "Paul Simon",
+      "last_name": ""
+    },
+    "source": {
+      "source_name": "CD"
+    },
+    "label": {
+      "title": "The Rhythm of the Saints",
+      "color": "Gold"
+    },
+    "publish_date": 1990,
+    "on_spotify": true
+  },
+  {
+    "genre": {
+      "genre_name": "Rap"
+    },
+    "author": {
+      "first_name": "Public Enemy",
+      "last_name": ""
+    },
+    "source": {
+      "source_name": "CD"
+    },
+    "label": {
+      "title": "Fear of a Black Planet",
+      "color": "White"
+    },
+    "publish_date": 1990,
+    "on_spotify": true
+  },
+  {
+    "genre": {
+      "genre_name": "Pop"
+    },
+    "author": {
+      "first_name": "Phil Collins",
+      "last_name": ""
+    },
+    "source": {
+      "source_name": "CD"
+    },
+    "label": {
+      "title": "...But Seriously",
+      "color": "Orange"
+    },
+    "publish_date": 1989,
+    "on_spotify": true
+  },
+  {
+    "genre": {
       "genre_name": "asdfasdf"
     },
     "author": {
-      "first_name": "asdfasdfa",
-      "last_name": "asd"
+      "first_name": "asdfasdfasdf",
+      "last_name": ""
     },
     "source": {
-      "source_name": ""
+      "source_name": "asdfasdf"
     },
     "label": {
-      "title": "asdf",
-      "color": "asdfasdfas"
+      "title": "asdfasdf",
+      "color": "asdfasdf"
     },
     "publish_date": 0,
     "on_spotify": false

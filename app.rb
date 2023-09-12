@@ -20,7 +20,12 @@ class App
     @genre = Genre.new(genre_name)
   end
 
-  def add_author
+  def add_author(item)
+    if item == 'music_album'
+      print 'Artist: '
+      first_name = gets.chomp
+      @author = Author.new(first_name, '')
+    else
     print 'Author First Name: '
     first_name = gets.chomp
 
@@ -28,6 +33,7 @@ class App
     last_name = gets.chomp
 
     @author = Author.new(first_name, last_name)
+    end
   end
 
   def add_source
@@ -53,17 +59,17 @@ class App
     else
       puts "\nAlbums:"
       @music_albums.each_with_index do |music_album, index|
-        title = music_album.label['title']
-        artist = "#{music_album.author['first_name'][0].capitalize}. #{music_album.author['last_name']}"
-        genre = music_album.genre['genre_name']
-
+        title = music_album.label.title
+        artist = music_album.author.first_name
+        genre = music_album.genre.genre_name
+  
         output = "#{index}: TITLE: #{title} | ARTIST: #{artist} | GENRE: #{genre} | "
         output += if music_album.publish_date.zero?
                     "RELEASE DATE: 'Unknown' | "
                   else
                     "RELEASE DATE: #{music_album.publish_date} | "
                   end
-
+  
         output += if music_album.on_spotify == true
                     'ON SPOTIFY: Yes'
                   else
@@ -72,11 +78,11 @@ class App
         puts output
       end
     end
-  end
+  end  
 
   def add_a_music_album
     add_genre
-    add_author
+    add_author('music_album')
     add_source
     add_label
 
