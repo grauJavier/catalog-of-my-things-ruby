@@ -10,8 +10,6 @@ class Item
     @publish_date = publish_date
     @archived = false
     @id = rand(1..1000)
-
-    source&.add_item(self)
   end
 
   def can_be_archived?
