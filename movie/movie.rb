@@ -1,7 +1,7 @@
 class Movie
     attr_accessor : silet
     def initialize(silet: false)
-        @silet: silet
+        @silet = silet
     end
 
     def can_be_archived?
