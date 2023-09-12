@@ -26,13 +26,13 @@ class App
       first_name = gets.chomp
       @author = Author.new(first_name, '')
     else
-    print 'Author First Name: '
-    first_name = gets.chomp
+      print 'Author First Name: '
+      first_name = gets.chomp
 
-    print 'Author Last Name: '
-    last_name = gets.chomp
+      print 'Author Last Name: '
+      last_name = gets.chomp
 
-    @author = Author.new(first_name, last_name)
+      @author = Author.new(first_name, last_name)
     end
   end
 
@@ -62,14 +62,14 @@ class App
         title = music_album.label.title
         artist = music_album.author.first_name
         genre = music_album.genre.genre_name
-  
+
         output = "#{index}: TITLE: #{title} | ARTIST: #{artist} | GENRE: #{genre} | "
         output += if music_album.publish_date.zero?
                     "RELEASE DATE: 'Unknown' | "
                   else
                     "RELEASE DATE: #{music_album.publish_date} | "
                   end
-  
+
         output += if music_album.on_spotify == true
                     'ON SPOTIFY: Yes'
                   else
@@ -78,7 +78,7 @@ class App
         puts output
       end
     end
-  end  
+  end
 
   def add_a_music_album
     add_genre

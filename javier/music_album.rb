@@ -33,7 +33,6 @@ class MusicAlbum < Item
       'on_spotify' => @on_spotify
     }
   end
-  
 
   def self.from_hash(hash)
     new(
