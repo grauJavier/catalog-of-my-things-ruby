@@ -9,6 +9,7 @@ class Item
     @label = label
     @published_date = published_date
     @archived = false
+    source.add_item(self) unless source.nil? 
   end
 
   def can_be_archived?
