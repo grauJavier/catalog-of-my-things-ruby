@@ -1,0 +1,20 @@
+[
+  {
+    "genre": {
+      "genre_name": "asdfasdf"
+    },
+    "author": {
+      "first_name": "asdfasdfa",
+      "last_name": "asd"
+    },
+    "source": {
+      "source_name": ""
+    },
+    "label": {
+      "title": "asdf",
+      "color": "asdfasdfas"
+    },
+    "publish_date": 0,
+    "on_spotify": false
+  }
+]

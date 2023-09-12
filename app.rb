@@ -1,3 +1,8 @@
+require_relative 'javier/author'
+require_relative 'javier/genre'
+require_relative 'javier/label'
+require_relative 'javier/source'
+
 require_relative 'javier/music_album'
 require_relative 'javier/preserve_music_albums'
 
@@ -8,24 +13,61 @@ class App
     @music_albums = PreserveMusicAlbums.new.gets_music_albums || []
   end
 
+  def add_genre
+    print 'Genre: '
+    genre_name = gets.chomp
+
+    @genre = Genre.new(genre_name)
+  end
+
+  def add_author
+    print 'Author First Name: '
+    first_name = gets.chomp
+
+    print 'Author Last Name: '
+    last_name = gets.chomp
+
+    @author = Author.new(first_name, last_name)
+  end
+
+  def add_source
+    print 'Source: '
+    source_name = gets.chomp
+
+    @source = Source.new(source_name)
+  end
+
+  def add_label
+    print 'Title: '
+    title = gets.chomp
+
+    print 'Color: '
+    color = gets.chomp
+
+    @label = Label.new(title, color)
+  end
+
   def list_all_music_albums
     if @music_albums.empty?
       puts "\nNo albums yet"
     else
       puts "\nAlbums:"
       @music_albums.each_with_index do |music_album, index|
-        output = "#{index}: '#{music_album.title}' "
+        title = music_album.label['title']
+        artist = "#{music_album.author['first_name'][0].capitalize}. #{music_album.author['last_name']}"
+        genre = music_album.genre['genre_name']
 
-        output += if music_album.published_date.zero?
-                    "Published date 'Unknown' | "
+        output = "#{index}: TITLE: #{title} | ARTIST: #{artist} | GENRE: #{genre} | "
+        output += if music_album.publish_date.zero?
+                    "RELEASE DATE: 'Unknown' | "
                   else
-                    "Published on #{music_album.published_date} | "
+                    "RELEASE DATE: #{music_album.publish_date} | "
                   end
 
-        output += if music_album.on_spotify == 'true'
-                    'On Spotify: YES'
+        output += if music_album.on_spotify == true
+                    'ON SPOTIFY: Yes'
                   else
-                    'On Spotify: NO'
+                    'ON SPOTIFY: No'
                   end
         puts output
       end
@@ -33,8 +75,11 @@ class App
   end
 
   def add_a_music_album
-    print 'Title: '
-    title = gets.chomp
+    add_genre
+    add_author
+    add_source
+    add_label
+
     print 'Publish Date (YEAR): '
     publish_date = gets.chomp
 
@@ -42,7 +87,7 @@ class App
       publish_date = publish_date.to_i
     else
       puts "ERROR: Invalid answer. Value set to 'Unkown'"
-      publish_date = 'Unknown'
+      publish_date = 0
     end
 
     print 'Available on Spotify (Y/N): '
@@ -57,7 +102,7 @@ class App
       on_spotify = false
     end
 
-    @music_albums.push(MusicAlbum.new(title, publish_date, on_spotify))
+    @music_albums.push(MusicAlbum.new(@genre, @author, @source, @label, publish_date, on_spotify))
     puts 'Music Album added successfully!'
   end
 
