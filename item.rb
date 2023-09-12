@@ -10,7 +10,7 @@ class Item
   def can_be_archived?
     current_year = Time.now.year
 
-    @published_date = 0 if @published_date === 'Unknown'
+    @published_date = 0 if @published_date == 'Unknown'
 
     current_year - @published_date > 10
   end

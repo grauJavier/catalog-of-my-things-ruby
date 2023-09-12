@@ -16,7 +16,7 @@ class App
       @music_albums.each_with_index do |music_album, index|
         output = "#{index}: '#{music_album.title}' "
 
-        output += if music_album.published_date == 0
+        output += if music_album.published_date.zero?
                     "Published date 'Unknown' | "
                   else
                     "Published on #{music_album.published_date} | "
@@ -35,7 +35,6 @@ class App
   def add_a_music_album
     print 'Title: '
     title = gets.chomp
-
     print 'Publish Date (YEAR): '
     publish_date = gets.chomp
 
