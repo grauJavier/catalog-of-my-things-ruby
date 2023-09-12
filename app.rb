@@ -16,10 +16,10 @@ class App
       @music_albums.each_with_index do |music_album, index|
         output = "#{index}: '#{music_album.title}' "
 
-        output += if music_album.published_date != 0
-                    "Published on #{music_album.published_date} | "
-                  else
+        output += if music_album.published_date == 0
                     "Published date 'Unknown' | "
+                  else
+                    "Published on #{music_album.published_date} | "
                   end
 
         output += if music_album.on_spotify == 'true'
