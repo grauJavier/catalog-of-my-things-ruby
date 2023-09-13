@@ -44,7 +44,6 @@ class App
 
       @author = Author.new(first_name, last_name)
     end
-    
   end
 
   def add_source

@@ -25,7 +25,7 @@ describe Movie do
 
     context 'when the movie cannot be archived' do
       it 'returns false' do
-        movie.silet = false 
+        movie.silet = false
         expect(movie.can_be_archived?).to be(false)
       end
     end
