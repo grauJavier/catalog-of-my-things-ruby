@@ -60,25 +60,16 @@ class App
 
   def add_author(item)
     if item == 'music_album'
-
       print 'Artist: '
-
       first_name = gets.chomp
-
       @author = Author.new(first_name, '')
-
     else
-
       print 'Author First Name: '
-
       first_name = gets.chomp
-
       print 'Author Last Name: '
-
       last_name = gets.chomp
-
       @author = Author.new(first_name, last_name)
-
+      @authors<<@author
     end
   end
 

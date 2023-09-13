@@ -74,5 +74,24 @@
     "publish_date": 2002,
     "multiplayer": true,
     "last_played_at": "2003/03/03"
+  },
+  {
+    "genre": {
+      "genre_name": "sdlkfjldf"
+    },
+    "author": {
+      "first_name": "dslfkjsdlf",
+      "last_name": "sdflkjdf"
+    },
+    "source": {
+      "source_name": "dslkfjdlkf"
+    },
+    "label": {
+      "title": "lkfjsd",
+      "color": "lksdfjd"
+    },
+    "publish_date": 2003,
+    "multiplayer": true,
+    "last_played_at": "3002/03/03"
   }
 ]

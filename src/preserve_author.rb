@@ -18,7 +18,7 @@ class PreserveAuthor
     return if authors.empty?
 
     authors_data = { authors: authors.map(&:author_name) }
-    File.open('./src/author.json', 'w') do |file|
+    File.open('./src/genres.json', 'w') do |file|
       file.puts(JSON.generate(authors_data))
     end
   end
