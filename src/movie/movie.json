@@ -15,7 +15,7 @@
       "color": "black"
     },
     "publish_date": 2021,
-    "silet": null
+    "silent": null
   },
   {
     "genre": {
@@ -33,7 +33,7 @@
       "color": "skyblue"
     },
     "publish_date": 2023,
-    "silet": true
+    "silent": true
   },
   {
     "genre": {
@@ -51,7 +51,7 @@
       "color": "null"
     },
     "publish_date": 2008,
-    "silet": true
+    "silent": true
   },
   {
     "genre": {
@@ -69,7 +69,7 @@
       "color": "null"
     },
     "publish_date": 2020,
-    "silet": true
+    "silent": true
   },
   {
     "genre": {
@@ -87,6 +87,24 @@
       "color": "null"
     },
     "publish_date": 2002,
-    "silet": true
+    "silent": true
+  },
+  {
+    "genre": {
+      "genre_name": "Comedy"
+    },
+    "author": {
+      "first_name": "Jack",
+      "last_name": "Nicolson"
+    },
+    "source": {
+      "source_name": "Amazon Prime"
+    },
+    "label": {
+      "title": "The hunter",
+      "color": "Black"
+    },
+    "publish_date": 2003,
+    "silent": true
   }
 ]

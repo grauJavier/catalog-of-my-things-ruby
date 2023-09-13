@@ -2,15 +2,15 @@ require_relative '../item'
 
 class Movie < Item
   attr_reader :archived
-  attr_accessor :silet
+  attr_accessor :silent
 
-  def initialize(genre, author, source, label, publish_date, silet)
+  def initialize(genre, author, source, label, publish_date, silent)
     super(genre, author, source, label, publish_date)
-    @silet = silet
+    @silent = silent
   end
 
   def can_be_archived?
-    super && @silet == true
+    super && @silent == true
   end
 
   def to_hash
@@ -30,7 +30,7 @@ class Movie < Item
         'color' => @label.color
       },
       'publish_date' => @publish_date,
-      'silet' => @silet
+      'silent' => @silent
     }
   end
 
@@ -41,7 +41,7 @@ class Movie < Item
       Source.new(hash['source']['source_name']),
       Label.new(hash['label']['title'], hash['label']['color']),
       hash['publish_date'],
-      hash['silet']
+      hash['silent']
     )
   end
 end

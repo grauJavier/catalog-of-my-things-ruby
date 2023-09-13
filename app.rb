@@ -108,10 +108,10 @@ class App
                     "RELEASE DATE: #{movie.publish_date} | "
                   end
 
-        output += if movie.silet == true
-                    'SILET: Yes'
+        output += if movie.silent == true
+                    'silent: Yes'
                   else
-                    'SILET: No'
+                    'silent: No'
                   end
         puts output
       end
@@ -134,19 +134,19 @@ class App
       publish_date = 0
     end
 
-    print 'Can be Archived (Y/N): '
-    silet = gets.chomp.downcase
+    print 'Is silent (Y/N): '
+    silent = gets.chomp.downcase
 
-    if silet == 'y'
-      silet = true
-    elsif silet == 'n'
-      silet = false
+    if silent == 'y'
+      silent = true
+    elsif silent == 'n'
+      silent = false
     else
       puts "ERROR: Invalid answer. Value set to 'N'"
-      silet = false
+      silent = false
     end
 
-    @movie.push(Movie.new(@genre, @author, @source, @label, publish_date, silet))
+    @movie.push(Movie.new(@genre, @author, @source, @label, publish_date, silent))
     puts 'Movie added successfully!'
   end
 
@@ -179,7 +179,7 @@ class App
       publish_date = 0
     end
 
-    print 'Can be Archived (Y/N): '
+    print 'Available on Spotify (Y/N): '
     on_spotify = gets.chomp.downcase
 
     if on_spotify == 'y'
