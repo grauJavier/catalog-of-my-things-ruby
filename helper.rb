@@ -15,3 +15,7 @@ require_relative 'src/preserve_sources'
 require_relative 'src/game/game'
 require_relative 'src/game/preserve_games'
 require_relative 'src/preserve_authors'
+
+require_relative 'src/book/book'
+require_relative 'src/book/preserve_books'
+require_relative 'src/preserve_labels'
