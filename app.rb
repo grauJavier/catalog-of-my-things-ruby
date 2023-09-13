@@ -38,8 +38,6 @@ class App
 
     @movie = PreserveMovies.new.gets_movies || []
 
-    # @game = PreserveGame.new.gets_games || []
-
   end
 
 
