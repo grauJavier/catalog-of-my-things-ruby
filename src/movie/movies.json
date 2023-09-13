@@ -8,7 +8,7 @@
       "last_name": "jjjj"
     },
     "source": {
-      "source_name": "netflix"
+      "source_name": "Netflix"
     },
     "label": {
       "title": "manifest",
@@ -26,7 +26,7 @@
       "last_name": "lawrence"
     },
     "source": {
-      "source_name": "netflix"
+      "source_name": "Netflix"
     },
     "label": {
       "title": "no hard feelings",
@@ -44,7 +44,7 @@
       "last_name": "unknown"
     },
     "source": {
-      "source_name": "netflix"
+      "source_name": "Netflix"
     },
     "label": {
       "title": "Big Bang Theory",
@@ -106,5 +106,41 @@
     },
     "publish_date": 2003,
     "silent": true
+  },
+  {
+    "genre": {
+      "genre_name": "Action"
+    },
+    "author": {
+      "first_name": "Bruce",
+      "last_name": "Lee"
+    },
+    "source": {
+      "source_name": "VHS"
+    },
+    "label": {
+      "title": "The red dragon",
+      "color": "Red"
+    },
+    "publish_date": 1993,
+    "silent": false
+  },
+  {
+    "genre": {
+      "genre_name": "Action"
+    },
+    "author": {
+      "first_name": "Mario",
+      "last_name": "Biondi"
+    },
+    "source": {
+      "source_name": "DVD"
+    },
+    "label": {
+      "title": "Just like me",
+      "color": "Blue"
+    },
+    "publish_date": 2003,
+    "silent": false
   }
 ]
