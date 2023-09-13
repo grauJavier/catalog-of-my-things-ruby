@@ -143,6 +143,25 @@ class App
     puts 'Movie added successfully!'
   end
 
+  def list_all_sources
+    if @movie.empty?
+      puts "\nNo movie sources yet"
+    else
+      puts "\nMovie Sources:"
+      
+      # Collect all movie sources
+      movie_sources = @movie.map { |movie| movie.source.source_name }
+  
+      # Remove duplicate sources and display them
+      unique_movie_sources = movie_sources.uniq
+  
+      unique_movie_sources.each_with_index do |source_name, index|
+        puts "#{index + 1}: #{source_name}"
+      end
+    end
+  end
+  
+
   def add_a_music_album
     add_genre
     add_author('music_album')
