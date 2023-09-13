@@ -67,7 +67,8 @@ class App
     @label = Label.new(title, color)
 
     return if @labels.any? { |label| label.title == title }
-    @labels << @label    
+
+    @labels << @label
   end
 
   def list_all_music_albums
@@ -255,28 +256,10 @@ class App
       puts "\nBooks:"
       @books.each_with_index do |book, index|
         title = book.label.title
-        author = book.author.first_name + ' ' + book.author.last_name
+        author = book.author.last_name
         genre = book.genre.genre_name
 
-        output = "#{index}: TITLE: #{title} | AUTHOR: #{author} | GENRE: #{genre} | "
-        output += if book.publish_date.zero?
-                    "RELEASE DATE: 'Unknown' | "
-                  else
-                    "RELEASE DATE: #{book.publish_date} | "
-                  end
-
-        output += if book.publisher.empty?
-                    "PUBLISHER: 'Unknown' | "
-                  else
-                    "PUBLISHER: #{book.publisher} | "
-                  end
-
-        output += if book.cover_state.empty?
-                    'COVER STATE: Unknown'
-                  else
-                    "COVER STATE: #{book.cover_state}"
-                  end
-
+        output = "#{index}: TITLE: #{title} | AUTHOR: #{author} | GENRE: #{genre} | RELEASE DATE: #{book.publish_date} | PUBLISHER: #{book.publisher} | COVER STATE: #{book.cover_state}"
         puts output
       end
     end
