@@ -1,7 +1,7 @@
 class Movie < Item
   attr_accessor :silet
 
-  def initialize( silet: false, **args)
+  def initialize(silet: false, **args)
     super(**args)
     @silet = silet
   end
