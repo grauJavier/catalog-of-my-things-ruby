@@ -16,8 +16,6 @@ require_relative 'src/music_album/preserve_music_albums'
 
 require_relative 'src/preserve_genres'
 
-require_relative 'src/author'
-
 require_relative 'src/preserve_author'
 
 require_relative 'src/game/game'
@@ -26,33 +24,23 @@ require_relative 'src/game/preserve_game'
 
 require_relative 'helper'
 
-# rubocop:disable Metrics/ClassLength
-
 
 
 class App
   attr_accessor :music_albums
 
-
-
   def initialize
     @music_albums = PreserveMusicAlbums.new.gets_music_albums || []
-
     @genres = PreserveGenres.new.gets_genres || []
-
     @authors = PreserveAuthor.new.gets_authors || []
-
     @movie = PreserveMovies.new.gets_movies || []
-
     @games = PreserveGames.new.gets_games || []
   end
 
   def add_genre
     print 'Genre: '
     genre_name = gets.chomp
-
     @genre = Genre.new(genre_name)
-
     return if @genres.any? { |genre| genre.genre_name == genre_name }
 
     @genres << @genre
@@ -69,148 +57,85 @@ class App
       print 'Author Last Name: '
       last_name = gets.chomp
       @author = Author.new(first_name, last_name)
-      @authors<<@author
+      return if @authors.any? { |author| author.first_name + author.last_name == first_name + last_name }
+
+      @authors << @author
     end
   end
 
   def add_source
     print 'Source: '
-
     source_name = gets.chomp
-
-
-
     @source = Source.new(source_name)
   end
 
   def add_label
     print 'Title: '
-
     title = gets.chomp
-
-
-
     print 'Color: '
-
     color = gets.chomp
-
-
 
     @label = Label.new(title, color)
   end
 
   def list_all_music_albums
     if @music_albums.empty?
-
-      puts "\nNo albums yet"
-
+      puts "No albums yet"
     else
-
-      puts "\nAlbums:"
-
+      puts "Albums:"
       @music_albums.each_with_index do |music_album, index|
         title = music_album.label.title
-
         artist = music_album.author.first_name
-
         genre = music_album.genre.genre_name
-
-
-
         output = "#{index}: TITLE: #{title} | ARTIST: #{artist} | GENRE: #{genre} | "
-
         output += if music_album.publish_date.zero?
-
                     "RELEASE DATE: 'Unknown' | "
-
                   else
-
                     "RELEASE DATE: #{music_album.publish_date} | "
-
                   end
-
-
-
         output += if music_album.on_spotify == true
-
                     'ON SPOTIFY: Yes'
-
                   else
-
                     'ON SPOTIFY: No'
-
                   end
-
         puts output
       end
-
     end
   end
 
   def list_all_movies
     if @movie.empty?
-
-      puts "\nNo movies yet"
-
+      puts "No movies yet"
     else
-
-      puts "\nMovies:"
-
+      puts "Movies:"
       @movie.each_with_index do |movie, index|
         title = movie.label.title
-
         artist = movie.author.first_name
-
         genre = movie.genre.genre_name
-
-
-
         output = "#{index}: TITLE: #{title} | ARTIST: #{artist} | GENRE: #{genre} | "
-
         output += if movie.publish_date.zero?
-
                     "RELEASE DATE: 'Unknown' | "
-
                   else
-
                     "RELEASE DATE: #{movie.publish_date} | "
-
                   end
-
-
-
         output += if movie.silet == true
-
                     'SILET: Yes'
-
                   else
-
                     'SILET: No'
-
                   end
-
         puts output
       end
-
     end
   end
 
   def add_a_movie
     add_genre
-
     add_author('movie')
-
     add_source
-
     add_label
 
-
-
     print 'Publish Date (YEAR): '
-
     publish_date = gets.chomp
-
-
 
     if publish_date.match?(/\A\d+\z/)
 
@@ -321,9 +246,9 @@ class App
 
   def list_all_games
     if @games.empty?
-      puts "\nNo games yet"
+      puts "No games yet"
     else
-      puts "\nGames:"
+      puts "Games:"
       @games.each_with_index do |game, index|
         title = game.label.title
         author = "#{game.author.first_name[0].capitalize}. #{game.author.last_name}"
@@ -346,11 +271,11 @@ class App
   def list_all_sources
     if @movie.empty?
 
-      puts "\nNo movie sources yet"
+      puts "No movie sources yet"
 
     else
 
-      puts "\nMovie Sources:"
+      puts "Movie Sources:"
 
 
 
@@ -426,11 +351,11 @@ class App
   def list_all_genres
     if @genres.empty?
 
-      puts "\nNo genres yet"
+      puts "No genres yet"
 
     else
 
-      puts "\nGenres:"
+      puts "Genres:"
 
       @genres.each_with_index do |genre, index|
         puts "#{index + 1}: #{genre.genre_name}"
@@ -442,14 +367,14 @@ class App
   def list_all_authors
     if @authors.empty?
 
-      puts "\nNo authors yet"
+      puts "No authors yet"
 
     else
 
-      puts "\nAuthors:"
+      puts "Authors:"
 
       @authors.each_with_index do |author, index|
-        puts "#{index + 1}: #{author.first_name}"
+        puts "#{index + 1}: #{author.first_name} #{author.last_name}"
       end
 
     end
@@ -471,5 +396,3 @@ class App
     exit
   end
 end
-
-# rubocop:enable Metrics/ClassLength

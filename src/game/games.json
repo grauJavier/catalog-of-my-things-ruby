@@ -93,5 +93,81 @@
     "publish_date": 2003,
     "multiplayer": true,
     "last_played_at": "3002/03/03"
+  },
+  {
+    "genre": {
+      "genre_name": "asdfasdfas"
+    },
+    "author": {
+      "first_name": "asdfasfdASDFASFD",
+      "last_name": "ASDFasdfasdf"
+    },
+    "source": {
+      "source_name": "ASDFASDFASD"
+    },
+    "label": {
+      "title": "asdfasdf",
+      "color": "ASFASDFASDF"
+    },
+    "publish_date": 0,
+    "multiplayer": false,
+    "last_played_at": "asdfasdf"
+  },
+  {
+    "genre": {
+      "genre_name": "ASDFASDF"
+    },
+    "author": {
+      "first_name": "asdfasdf",
+      "last_name": "ASDFASDF"
+    },
+    "source": {
+      "source_name": "asdfasdf"
+    },
+    "label": {
+      "title": "ASDFASDF",
+      "color": "asdfasdf"
+    },
+    "publish_date": 0,
+    "multiplayer": false,
+    "last_played_at": "asdfasdf"
+  },
+  {
+    "genre": {
+      "genre_name": "asdfasdf"
+    },
+    "author": {
+      "first_name": "ASDFASDf",
+      "last_name": "asdfasdf"
+    },
+    "source": {
+      "source_name": "aSDFASDF"
+    },
+    "label": {
+      "title": "asdfasdf",
+      "color": "ASDFASDF"
+    },
+    "publish_date": 0,
+    "multiplayer": false,
+    "last_played_at": "asdf"
+  },
+  {
+    "genre": {
+      "genre_name": "asdfasdf"
+    },
+    "author": {
+      "first_name": "ASDFASDF",
+      "last_name": "asdfasdf"
+    },
+    "source": {
+      "source_name": "asdfASD"
+    },
+    "label": {
+      "title": "ASDFasdfasd",
+      "color": "asdfafsd"
+    },
+    "publish_date": 0,
+    "multiplayer": false,
+    "last_played_at": "asdf"
   }
 ]
