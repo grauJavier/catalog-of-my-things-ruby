@@ -42,10 +42,10 @@ class App
       print 'Author Last Name: '
       last_name = gets.chomp
       @author = Author.new(first_name, last_name)
-      return if @authors.any? { |author| author.first_name + author.last_name == first_name + last_name }
-
-      @authors << @author
     end
+
+      return if @authors.any? { |author| author.first_name + author.last_name == first_name + last_name }
+      @authors << @author
   end
 
   def add_source
@@ -80,7 +80,7 @@ class App
         title = music_album.label.title
         artist = music_album.author.first_name
         genre = music_album.genre.genre_name
-        output = "#{index}: TITLE: #{title} | ARTIST: #{artist} | GENRE: #{genre} | "
+        output = "#{index + 1}: TITLE: #{title} | ARTIST: #{artist} | GENRE: #{genre} | "
         output += if music_album.publish_date.zero?
                     "RELEASE DATE: 'Unknown' | "
                   else
@@ -105,7 +105,7 @@ class App
         title = movie.label.title
         artist = "#{movie.author.first_name[0].capitalize}. #{movie.author.last_name}"
         genre = movie.genre.genre_name
-        output = "#{index}: TITLE: #{title} | DIRECTOR: #{artist} | GENRE: #{genre} | "
+        output = "#{index + 1}: TITLE: #{title} | DIRECTOR: #{artist} | GENRE: #{genre} | "
         output += if movie.publish_date.zero?
                     "RELEASE DATE: 'Unknown' | "
                   else
@@ -204,7 +204,7 @@ class App
                          game.publish_date
                        end
 
-        output = "#{index}: TITLE: #{title} | AUTHOR: #{author} | MULTIPLAYER: #{multiplayer} |  LAST PLAYED AT: #{last_played_at} | RELEASE DATE: #{release_date}"
+        output = "#{index + 1}: TITLE: #{title} | AUTHOR: #{author} | MULTIPLAYER: #{multiplayer} |  LAST PLAYED AT: #{last_played_at} | RELEASE DATE: #{release_date}"
 
         puts output
       end
@@ -309,7 +309,7 @@ class App
         author = book.author.last_name
         genre = book.genre.genre_name
 
-        output = "#{index}: TITLE: #{title} | AUTHOR: #{author} | GENRE: #{genre} | RELEASE DATE: #{book.publish_date} | PUBLISHER: #{book.publisher} | COVER STATE: #{book.cover_state}"
+        output = "#{index + 1}: TITLE: #{title} | AUTHOR: #{author} | GENRE: #{genre} | RELEASE DATE: #{book.publish_date} | PUBLISHER: #{book.publisher} | COVER STATE: #{book.cover_state}"
         puts output
       end
     end
@@ -343,6 +343,7 @@ class App
     PreserveAuthors.new.save_authors(@authors)
     PreserveMovies.new.save_movies(@movies)
     PreserveGames.new.save_games(@games)
+    PreserveSources.new.save_sources(@sources)
     PreserveBooks.new.save_books(@books)
     PreserveLabels.new.save_labels(@labels)
     puts 'Thank you for using this app!'
