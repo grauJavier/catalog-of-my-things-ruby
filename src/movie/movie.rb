@@ -1,12 +1,12 @@
-class Movie
-  attr_accessor :silet, :release_year
+class Movie < Item
+  attr_accessor :silet
 
-  def initialize(release_year, silet: false)
+  def initialize( silet: false, **args)
+    super(**args)
     @silet = silet
-    @release_year = release_year
   end
 
   def can_be_archived?
-    @release_year < 2000
+    super || @silent == true
   end
 end
