@@ -1,21 +1,7 @@
-require_relative 'src/author'
-
-require_relative 'src/genre'
-
-require_relative 'src/label'
-
-require_relative 'src/source'
-require_relative 'src/item'
-require_relative 'src/music_album/music_album'
-require_relative 'src/music_album/preserve_music_albums'
-require_relative 'src/preserve_genres'
-require_relative 'src/preserve_author'
-require_relative 'src/game/game'
-require_relative 'src/game/preserve_game'
 require_relative 'helper'
 
 class App
-  attr_accessor :music_albums
+  attr_accessor :music_albums, :movies, :genres, :sources
 
   def initialize
     @music_albums = PreserveMusicAlbums.new.gets_music_albums || []
@@ -39,6 +25,14 @@ class App
       print 'Artist: '
       first_name = gets.chomp
       @author = Author.new(first_name, '')
+    elsif item == 'movie'
+      print "Director's First Name: "
+      first_name = gets.chomp
+
+      print "Director's Last Name: "
+      last_name = gets.chomp
+
+      @author = Author.new(first_name, last_name)
     else
       print 'Author First Name: '
       first_name = gets.chomp
@@ -49,12 +43,17 @@ class App
 
       @authors << @author
     end
+    
   end
 
   def add_source
     print 'Source: '
     source_name = gets.chomp
     @source = Source.new(source_name)
+
+    return if @sources.any? { |source| source.source_name == source_name }
+
+    @sources << @source
   end
 
   def add_label
@@ -92,24 +91,24 @@ class App
   end
 
   def list_all_movies
-    if @movie.empty?
-      puts 'No movies yet'
+    if @movies.empty?
+      puts "\nNo movies yet"
     else
-      puts 'Movies:'
-      @movie.each_with_index do |movie, index|
+      puts "\nMovies:"
+      @movies.each_with_index do |movie, index|
         title = movie.label.title
-        artist = movie.author.first_name
+        artist = "#{movie.author.first_name[0].capitalize}. #{movie.author.last_name}"
         genre = movie.genre.genre_name
-        output = "#{index}: TITLE: #{title} | ARTIST: #{artist} | GENRE: #{genre} | "
+        output = "#{index}: TITLE: #{title} | DIRECTOR: #{artist} | GENRE: #{genre} | "
         output += if movie.publish_date.zero?
                     "RELEASE DATE: 'Unknown' | "
                   else
                     "RELEASE DATE: #{movie.publish_date} | "
                   end
-        output += if movie.silet == true
-                    'SILET: Yes'
+        output += if movie.silent == true
+                    'silent: Yes'
                   else
-                    'SILET: No'
+                    'silent: No'
                   end
         puts output
       end
@@ -133,19 +132,19 @@ class App
       publish_date = 0
     end
 
-    print 'Can be Archived (Y/N): '
-    silet = gets.chomp.downcase
+    print 'Is silent (Y/N): '
+    silent = gets.chomp.downcase
 
-    if silet == 'y'
-      silet = true
-    elsif silet == 'n'
-      silet = false
+    if silent == 'y'
+      silent = true
+    elsif silent == 'n'
+      silent = false
     else
       puts "ERROR: Invalid answer. Value set to 'N'"
-      silet = false
+      silent = false
     end
 
-    @movie.push(Movie.new(@genre, @author, @source, @label, publish_date, silet))
+    @movies.push(Movie.new(@genre, @author, @source, @label, publish_date, silent))
     puts 'Movie added successfully!'
   end
 
@@ -208,14 +207,13 @@ class App
   end
 
   def list_all_sources
-    if @movie.empty?
-      puts 'No movie sources yet'
+    if @sources.empty?
+      puts "\nNo movie sources yet"
     else
-      puts 'Movie Sources:'
-      movie_sources = @movie.map { |movie| movie.source.source_name }
-      unique_movie_sources = movie_sources.uniq
-      unique_movie_sources.each_with_index do |source_name, index|
-        puts "#{index + 1}: #{source_name}"
+      puts "\nSources:"
+
+      @sources.each_with_index do |source, index|
+        puts "#{index + 1}: #{source.source_name}"
       end
     end
   end
@@ -234,7 +232,7 @@ class App
       publish_date = 0
     end
 
-    print 'Can be Archived (Y/N): '
+    print 'Available on Spotify (Y/N): '
     on_spotify = gets.chomp.downcase
 
     if on_spotify == 'y'

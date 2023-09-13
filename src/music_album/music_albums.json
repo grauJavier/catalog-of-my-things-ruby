@@ -178,5 +178,23 @@
     },
     "publish_date": 2002,
     "on_spotify": true
+  },
+  {
+    "genre": {
+      "genre_name": "Dance"
+    },
+    "author": {
+      "first_name": "Lady Gaga",
+      "last_name": ""
+    },
+    "source": {
+      "source_name": "iTunes"
+    },
+    "label": {
+      "title": "Paparassi",
+      "color": "Yellow"
+    },
+    "publish_date": 2010,
+    "on_spotify": true
   }
 ]

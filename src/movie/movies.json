@@ -8,14 +8,14 @@
       "last_name": "jjjj"
     },
     "source": {
-      "source_name": "netflix"
+      "source_name": "Netflix"
     },
     "label": {
       "title": "manifest",
       "color": "black"
     },
     "publish_date": 2021,
-    "silet": null
+    "silent": null
   },
   {
     "genre": {
@@ -26,14 +26,14 @@
       "last_name": "lawrence"
     },
     "source": {
-      "source_name": "netflix"
+      "source_name": "Netflix"
     },
     "label": {
       "title": "no hard feelings",
       "color": "skyblue"
     },
     "publish_date": 2023,
-    "silet": true
+    "silent": true
   },
   {
     "genre": {
@@ -44,14 +44,14 @@
       "last_name": "unknown"
     },
     "source": {
-      "source_name": "netflix"
+      "source_name": "Netflix"
     },
     "label": {
       "title": "Big Bang Theory",
       "color": "null"
     },
     "publish_date": 2008,
-    "silet": true
+    "silent": true
   },
   {
     "genre": {
@@ -69,7 +69,7 @@
       "color": "null"
     },
     "publish_date": 2020,
-    "silet": true
+    "silent": true
   },
   {
     "genre": {
@@ -87,6 +87,60 @@
       "color": "null"
     },
     "publish_date": 2002,
-    "silet": true
+    "silent": true
+  },
+  {
+    "genre": {
+      "genre_name": "Comedy"
+    },
+    "author": {
+      "first_name": "Jack",
+      "last_name": "Nicolson"
+    },
+    "source": {
+      "source_name": "Amazon Prime"
+    },
+    "label": {
+      "title": "The hunter",
+      "color": "Black"
+    },
+    "publish_date": 2003,
+    "silent": true
+  },
+  {
+    "genre": {
+      "genre_name": "Action"
+    },
+    "author": {
+      "first_name": "Bruce",
+      "last_name": "Lee"
+    },
+    "source": {
+      "source_name": "VHS"
+    },
+    "label": {
+      "title": "The red dragon",
+      "color": "Red"
+    },
+    "publish_date": 1993,
+    "silent": false
+  },
+  {
+    "genre": {
+      "genre_name": "Action"
+    },
+    "author": {
+      "first_name": "Mario",
+      "last_name": "Biondi"
+    },
+    "source": {
+      "source_name": "DVD"
+    },
+    "label": {
+      "title": "Just like me",
+      "color": "Blue"
+    },
+    "publish_date": 2003,
+    "silent": false
   }
 ]
