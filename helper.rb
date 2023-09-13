@@ -11,3 +11,7 @@ require_relative 'src/preserve_genres'
 require_relative 'src/movie/movie'
 require_relative 'src/movie/preserve_movies'
 require_relative 'src/preserve_sources'
+
+require_relative 'src/game/game'
+require_relative 'src/game/preserve_games'
+require_relative 'src/preserve_authors'

@@ -169,5 +169,24 @@
     "publish_date": 0,
     "multiplayer": false,
     "last_played_at": "asdf"
+  },
+  {
+    "genre": {
+      "genre_name": "Shooter"
+    },
+    "author": {
+      "first_name": "Maxis",
+      "last_name": ""
+    },
+    "source": {
+      "source_name": "Steam"
+    },
+    "label": {
+      "title": "Simcity 4500",
+      "color": "Grey"
+    },
+    "publish_date": 2019,
+    "multiplayer": true,
+    "last_played_at": "2020"
   }
 ]

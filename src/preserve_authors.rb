@@ -1,7 +1,7 @@
 require 'json'
 require_relative 'author'
 
-class PreserveAuthor
+class PreserveAuthors
   def gets_authors
     return [] unless File.exist?('./src/authors.json')
 

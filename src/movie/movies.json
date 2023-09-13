@@ -142,5 +142,23 @@
     },
     "publish_date": 2003,
     "silent": false
+  },
+  {
+    "genre": {
+      "genre_name": "Comedy"
+    },
+    "author": {
+      "first_name": "Allan Parks",
+      "last_name": "Parks"
+    },
+    "source": {
+      "source_name": "Netflix"
+    },
+    "label": {
+      "title": "All dogs go to heaven",
+      "color": "Darkblue"
+    },
+    "publish_date": 2001,
+    "silent": false
   }
 ]

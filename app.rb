@@ -6,8 +6,9 @@ class App
   def initialize
     @music_albums = PreserveMusicAlbums.new.gets_music_albums || []
     @genres = PreserveGenres.new.gets_genres || []
-    @authors = PreserveAuthor.new.gets_authors || []
-    @movie = PreserveMovies.new.gets_movies || []
+    @authors = PreserveAuthors.new.gets_authors || []
+    @movies = PreserveMovies.new.gets_movies || []
+    @sources = PreserveSources.new.gets_sources || []
     @games = PreserveGames.new.gets_games || []
   end
 
@@ -197,8 +198,7 @@ class App
                          game.publish_date
                        end
 
-        output = "#{index}: TITLE: #{title} | AUTHOR: #{author} | MULTIPLAYER: #{multiplayer}
-        |  LAST PLAYED AT: #{last_played_at} | RELEASE DATE: #{release_date}"
+        output = "#{index}: TITLE: #{title} | AUTHOR: #{author} | MULTIPLAYER: #{multiplayer} |  LAST PLAYED AT: #{last_played_at} | RELEASE DATE: #{release_date}"
 
         puts output
       end
@@ -272,8 +272,8 @@ class App
   def quit
     PreserveMusicAlbums.new.save_music_albums(@music_albums)
     PreserveGenres.new.save_genres(@genres)
-    PreserveAuthor.new.save_authors(@authors)
-    PreserveMovies.new.save_movies(@movie)
+    PreserveAuthors.new.save_authors(@authors)
+    PreserveMovies.new.save_movies(@movies)
     PreserveGames.new.save_games(@games)
     puts 'Thank you for using this app!'
     exit
