@@ -178,5 +178,41 @@
     },
     "publish_date": 2002,
     "on_spotify": true
+  },
+  {
+    "genre": {
+      "genre_name": "Dance"
+    },
+    "author": {
+      "first_name": "Lady Gaga",
+      "last_name": ""
+    },
+    "source": {
+      "source_name": "iTunes"
+    },
+    "label": {
+      "title": "Paparassi",
+      "color": "Yellow"
+    },
+    "publish_date": 2010,
+    "on_spotify": true
+  },
+  {
+    "genre": {
+      "genre_name": "Noise Metal"
+    },
+    "author": {
+      "first_name": "Brutal Display of Power",
+      "last_name": ""
+    },
+    "source": {
+      "source_name": "Black Market"
+    },
+    "label": {
+      "title": "Noise is my passion",
+      "color": "Black"
+    },
+    "publish_date": 1989,
+    "on_spotify": false
   }
 ]
