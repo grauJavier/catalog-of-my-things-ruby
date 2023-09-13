@@ -4,10 +4,10 @@ class Book < Item
   attr_accessor :publisher, :cover_state
   attr_reader :archived
 
-  def initialize(genre, author, source, label, publish_date, publisher, cover_state)
-    super(genre, author, source, label, publish_date)
-    @publisher = publisher
-    @cover_state = cover_state
+  def initialize(params)
+    super(params[:genre], params[:author], params[:source], params[:label], params[:publish_date])
+    @publisher = params[:publisher]
+    @cover_state = params[:cover_state]
   end
 
   def can_be_archived?
@@ -38,13 +38,28 @@ class Book < Item
 
   def self.from_hash(hash)
     new(
-      Genre.new(hash['genre']['genre_name']),
-      Author.new(hash['author']['first_name'], hash['author']['last_name']),
-      Source.new(hash['source']['source_name']),
-      Label.new(hash['label']['title'], hash['label']['color']),
-      hash['publish_date'],
-      hash['publisher'],
-      hash['cover_state']
+      genre: Genre.new(hash['genre']['genre_name']),
+      author: Author.new(hash['author']['first_name'], hash['author']['last_name']),
+      source: Source.new(hash['source']['source_name']),
+      label: Label.new(hash['label']['title'], hash['label']['color']),
+      publish_date: hash['publish_date'],
+      publisher: hash['publisher'],
+      cover_state: hash['cover_state']
     )
   end
 end
+
+# book_params = {
+#   genre: 'genre',
+#   author: 'author',
+#   source: 'source',
+#   label: 'label',
+#   publish_date: '2023-09-13',
+#   publisher: 'HarperCollins',
+#   cover_state: 'good'
+# }
+
+# book = Book.new(book_params)
+# p book
+# <Book:0x00007f40a43655b0 @genre="genre", @author="author", @source="source", @label="label",
+# @publish_date="2023-09-13", @archived=false, @id=143, @publisher="HarperCollins", @cover_state="good">
