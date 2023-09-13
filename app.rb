@@ -1,7 +1,7 @@
 require_relative 'helper'
 
 class App
-  attr_accessor :music_albums, :movies, :genres, :sources
+  attr_accessor :music_albums, :movies, :genres, :sources, :games, :books, :labels, :authors
 
   def initialize
     @music_albums = PreserveMusicAlbums.new.gets_music_albums || []
