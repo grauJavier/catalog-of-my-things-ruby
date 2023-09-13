@@ -163,20 +163,20 @@
   },
   {
     "genre": {
-      "genre_name": "asdfasdf"
+      "genre_name": "Jazz Folk Fusion"
     },
     "author": {
-      "first_name": "asdfasdfasdf",
+      "first_name": "Norah Jones",
       "last_name": ""
     },
     "source": {
-      "source_name": "asdfasdf"
+      "source_name": "CD"
     },
     "label": {
-      "title": "asdfasdf",
-      "color": "asdfasdf"
+      "title": "Come away with me",
+      "color": "Dark Blue"
     },
-    "publish_date": 0,
-    "on_spotify": false
+    "publish_date": 2002,
+    "on_spotify": true
   }
 ]

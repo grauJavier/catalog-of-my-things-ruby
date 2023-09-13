@@ -1,10 +1,22 @@
+require_relative 'src/author'
+require_relative 'src/genre'
+require_relative 'src/label'
+require_relative 'src/source'
+require_relative 'src/item'
+
+require_relative 'src/music_album/music_album'
+require_relative 'src/music_album/preserve_music_albums'
+require_relative 'src/preserve_genres'
+
 require_relative 'helper'
 # rubocop:disable Metrics/ClassLength
+
 class App
   attr_accessor :music_albums
 
   def initialize
     @music_albums = PreserveMusicAlbums.new.gets_music_albums || []
+    @genres = PreserveGenres.new.gets_genres || []
     @movie = PreserveMovies.new.gets_movies || []
   end
 
@@ -13,6 +25,10 @@ class App
     genre_name = gets.chomp
 
     @genre = Genre.new(genre_name)
+
+    return if @genres.any? { |genre| genre.genre_name == genre_name }
+
+    @genres << @genre
   end
 
   def add_author(item)
@@ -179,8 +195,20 @@ class App
     puts 'Music Album added successfully!'
   end
 
+  def list_all_genres
+    if @genres.empty?
+      puts "\nNo genres yet"
+    else
+      puts "\nGenres:"
+      @genres.each_with_index do |genre, index|
+        puts "#{index + 1}: #{genre.genre_name}"
+      end
+    end
+  end
+
   def quit
     PreserveMusicAlbums.new.save_music_albums(@music_albums)
+    PreserveGenres.new.save_genres(@genres)
     PreserveMovies.new.save_movies(@movie)
     puts 'Thank you for using this app!'
     exit

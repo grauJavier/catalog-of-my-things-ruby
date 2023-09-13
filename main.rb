@@ -23,7 +23,7 @@ class Main
       action
     else
       puts "\nInvalid option select a valid one\n\n"
-      choose
+      menu
     end
   end
 
