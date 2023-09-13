@@ -7,6 +7,8 @@ require_relative 'src/book/book'
 require_relative 'src/music_album/music_album'
 require_relative 'src/music_album/preserve_music_albums'
 require_relative 'src/preserve_genres'
+require_relative 'src/book/preserve_books'
+require_relative 'src/preserve_labels'
 
 require_relative 'helper'
 # rubocop:disable Metrics/ClassLength
@@ -18,8 +20,8 @@ class App
     @music_albums = PreserveMusicAlbums.new.gets_music_albums || []
     @genres = PreserveGenres.new.gets_genres || []
     @movie = PreserveMovies.new.gets_movies || []
-    @books = []
-    @labels = []
+    @books = PreserveBooks.new.gets_books || []
+    @labels = PreserveLabels.new.gets_labels || []
   end
 
   def add_genre
@@ -66,7 +68,7 @@ class App
 
     @label = Label.new(title, color)
 
-    return if @labels.any? { |label| label.title == title }
+    return if @labels.any? { |label| label.title + label.color == title + color }
 
     @labels << @label
   end
@@ -271,7 +273,7 @@ class App
     else
       puts "\nLabels:"
       @labels.each_with_index do |label, index|
-        puts "#{index + 1}: #{label.title} | #{label.color}"
+        puts "#{index + 1}: TITLE: #{label.title} | COLOR: #{label.color}"
       end
     end
   end
@@ -282,6 +284,8 @@ class App
     PreserveMusicAlbums.new.save_music_albums(@music_albums)
     PreserveGenres.new.save_genres(@genres)
     PreserveMovies.new.save_movies(@movie)
+    PreserveBooks.new.save_books(@books)
+    PreserveLabels.new.save_labels(@labels)
     puts 'Thank you for using this app!'
     exit
   end
