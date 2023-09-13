@@ -16,11 +16,13 @@ require_relative 'src/music_album/preserve_music_albums'
 
 require_relative 'src/preserve_genres'
 
+require_relative 'src/author'
+
+require_relative 'src/preserve_author'
+
 require_relative 'src/game/game'
 
 require_relative 'src/game/preserve_game'
-
-# ./src/game/game_albums.json
 
 require_relative 'helper'
 
@@ -38,6 +40,8 @@ class App
 
     @genres = PreserveGenres.new.gets_genres || []
 
+    @authors = PreserveAuthor.new.gets_authors || []
+
     @movie = PreserveMovies.new.gets_movies || []
 
     @games = PreserveGames.new.gets_games || []
@@ -45,18 +49,11 @@ class App
 
   def add_genre
     print 'Genre: '
-
     genre_name = gets.chomp
-
-
 
     @genre = Genre.new(genre_name)
 
-
-
     return if @genres.any? { |genre| genre.genre_name == genre_name }
-
-
 
     @genres << @genre
   end
@@ -76,13 +73,9 @@ class App
 
       first_name = gets.chomp
 
-
-
       print 'Author Last Name: '
 
       last_name = gets.chomp
-
-
 
       @author = Author.new(first_name, last_name)
 
@@ -455,12 +448,31 @@ class App
     end
   end
 
+  def list_all_authors
+    if @authors.empty?
+
+      puts "\nNo authors yet"
+
+    else
+
+      puts "\nAuthors:"
+
+      @authors.each_with_index do |author, index|
+        puts "#{index + 1}: #{author.first_name}"
+      end
+
+    end
+  end
+
   def quit
     PreserveMusicAlbums.new.save_music_albums(@music_albums)
 
     PreserveGenres.new.save_genres(@genres)
 
+    PreserveAuthor.new.save_authors(@authors)
+
     PreserveMovies.new.save_movies(@movie)
+
     PreserveGames.new.save_games(@games)
 
     puts 'Thank you for using this app!'
