@@ -1,0 +1,116 @@
+[
+  {
+    "genre": {
+      "genre_name": "1"
+    },
+    "author": {
+      "first_name": "2",
+      "last_name": "3"
+    },
+    "source": {
+      "source_name": "4"
+    },
+    "label": {
+      "title": "5",
+      "color": "6"
+    },
+    "publish_date": 7,
+    "publisher": "8",
+    "cover_state": "9"
+  },
+  {
+    "genre": {
+      "genre_name": "a"
+    },
+    "author": {
+      "first_name": "f",
+      "last_name": "d"
+    },
+    "source": {
+      "source_name": "s"
+    },
+    "label": {
+      "title": "d",
+      "color": "df"
+    },
+    "publish_date": 122,
+    "publisher": "d",
+    "cover_state": "s"
+  },
+  {
+    "genre": {
+      "genre_name": "1"
+    },
+    "author": {
+      "first_name": "2",
+      "last_name": "3"
+    },
+    "source": {
+      "source_name": "4"
+    },
+    "label": {
+      "title": "5",
+      "color": "6"
+    },
+    "publish_date": 7,
+    "publisher": "8",
+    "cover_state": "9"
+  },
+  {
+    "genre": {
+      "genre_name": "a"
+    },
+    "author": {
+      "first_name": "s",
+      "last_name": "d"
+    },
+    "source": {
+      "source_name": "f"
+    },
+    "label": {
+      "title": "g",
+      "color": "e"
+    },
+    "publish_date": 12,
+    "publisher": "a",
+    "cover_state": "s"
+  },
+  {
+    "genre": {
+      "genre_name": "1"
+    },
+    "author": {
+      "first_name": "2",
+      "last_name": "3"
+    },
+    "source": {
+      "source_name": "4"
+    },
+    "label": {
+      "title": "5",
+      "color": "6"
+    },
+    "publish_date": 7,
+    "publisher": "8",
+    "cover_state": "9"
+  },
+  {
+    "genre": {
+      "genre_name": "a"
+    },
+    "author": {
+      "first_name": "d",
+      "last_name": "f"
+    },
+    "source": {
+      "source_name": "d"
+    },
+    "label": {
+      "title": "w",
+      "color": "r"
+    },
+    "publish_date": 122,
+    "publisher": "d",
+    "cover_state": "f"
+  }
+]

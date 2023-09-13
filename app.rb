@@ -10,6 +10,8 @@ class App
     @movies = PreserveMovies.new.gets_movies || []
     @sources = PreserveSources.new.gets_sources || []
     @games = PreserveGames.new.gets_games || []
+    @books = PreserveBooks.new.gets_books || []
+    @labels = PreserveLabels.new.gets_labels || []
   end
 
   def add_genre
@@ -63,6 +65,10 @@ class App
     color = gets.chomp
 
     @label = Label.new(title, color)
+
+    return if @labels.any? { |label| label.title + label.color == title + color }
+
+    @labels << @label
   end
 
   def list_all_music_albums
@@ -258,6 +264,68 @@ class App
     end
   end
 
+  def add_a_book
+    add_genre
+    add_author('book')
+    add_source
+    add_label
+    print 'Publish Date (YEAR): '
+    publish_date = gets.chomp
+
+    if publish_date.match?(/\A\d+\z/)
+      publish_date = publish_date.to_i
+    else
+      puts "ERROR: Invalid answer. Value set to 'Unkown'"
+      publish_date = 0
+    end
+
+    print 'Publisher: '
+    publisher = gets.chomp
+
+    print 'Cover state: '
+    cover_state = gets.chomp
+
+    book_params = {
+      genre: @genre,
+      author: @author,
+      source: @source,
+      label: @label,
+      publish_date: publish_date,
+      publisher: publisher,
+      cover_state: cover_state
+    }
+
+    @books.push(Book.new(book_params))
+    puts 'Book added successfully!'
+  end
+
+  def list_all_books
+    if @books.empty?
+      puts "\nNo books yet"
+    else
+      puts "\nBooks:"
+      @books.each_with_index do |book, index|
+        title = book.label.title
+        author = book.author.last_name
+        genre = book.genre.genre_name
+
+        output = "#{index}: TITLE: #{title} | AUTHOR: #{author} | GENRE: #{genre} | RELEASE DATE: #{book.publish_date} | PUBLISHER: #{book.publisher} | COVER STATE: #{book.cover_state}"
+        puts output
+      end
+    end
+  end
+
+  def list_all_labels
+    if @labels.empty?
+      puts "\nNo labels yet"
+    else
+      puts "\nLabels:"
+      @labels.each_with_index do |label, index|
+        puts "#{index + 1}: TITLE: #{label.title} | COLOR: #{label.color}"
+      end
+    end
+  end
+
   def list_all_authors
     if @authors.empty?
       puts 'No authors yet'
@@ -275,6 +343,8 @@ class App
     PreserveAuthors.new.save_authors(@authors)
     PreserveMovies.new.save_movies(@movies)
     PreserveGames.new.save_games(@games)
+    PreserveBooks.new.save_books(@books)
+    PreserveLabels.new.save_labels(@labels)
     puts 'Thank you for using this app!'
     exit
   end
