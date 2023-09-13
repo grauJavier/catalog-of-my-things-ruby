@@ -4,29 +4,11 @@
       "genre_name": "Rock"
     },
     "author": {
-      "first_name": "Radiohead",
-      "last_name": ""
-    },
-    "source": {
-      "source_name": "CD"
-    },
-    "label": {
-      "title": "The Bends",
-      "color": "Black"
-    },
-    "publish_date": 1995,
-    "on_spotify": true
-  },
-  {
-    "genre": {
-      "genre_name": "Rock"
-    },
-    "author": {
       "first_name": "Nirvana",
       "last_name": ""
     },
     "source": {
-      "source_name": "CD"
+      "source_name": "Geffen Records"
     },
     "label": {
       "title": "Nevermind",
@@ -37,38 +19,92 @@
   },
   {
     "genre": {
-      "genre_name": "Pop"
+      "genre_name": "Hip-Hop"
     },
     "author": {
-      "first_name": "Madonna",
+      "first_name": "Dr. Dre",
       "last_name": ""
     },
     "source": {
-      "source_name": "CD"
+      "source_name": "Death Row Records"
     },
     "label": {
-      "title": "The Immaculate Collection",
+      "title": "The Chronic",
       "color": "Red"
     },
-    "publish_date": 1990,
+    "publish_date": 1992,
     "on_spotify": true
   },
   {
     "genre": {
-      "genre_name": "Rap"
+      "genre_name": "Pop"
     },
     "author": {
-      "first_name": "Ice Cube",
+      "first_name": "Michael Jackson",
       "last_name": ""
     },
     "source": {
-      "source_name": "CD"
+      "source_name": "Epic Records"
     },
     "label": {
-      "title": "AmeriKKKa's Most Wanted",
+      "title": "Dangerous",
+      "color": "Black"
+    },
+    "publish_date": 1991,
+    "on_spotify": true
+  },
+  {
+    "genre": {
+      "genre_name": "Alternative"
+    },
+    "author": {
+      "first_name": "Radiohead",
+      "last_name": ""
+    },
+    "source": {
+      "source_name": "Parlophone"
+    },
+    "label": {
+      "title": "OK Computer",
       "color": "Green"
     },
-    "publish_date": 1990,
+    "publish_date": 1997,
+    "on_spotify": true
+  },
+  {
+    "genre": {
+      "genre_name": "R&B"
+    },
+    "author": {
+      "first_name": "Beyoncé",
+      "last_name": ""
+    },
+    "source": {
+      "source_name": "Columbia Records"
+    },
+    "label": {
+      "title": "Lemonade",
+      "color": "Yellow"
+    },
+    "publish_date": 2016,
+    "on_spotify": true
+  },
+  {
+    "genre": {
+      "genre_name": "Pop"
+    },
+    "author": {
+      "first_name": "Taylor Swift",
+      "last_name": ""
+    },
+    "source": {
+      "source_name": "Republic Records"
+    },
+    "label": {
+      "title": "1989",
+      "color": "Pink"
+    },
+    "publish_date": 2014,
     "on_spotify": true
   },
   {
@@ -76,17 +112,53 @@
       "genre_name": "Rock"
     },
     "author": {
-      "first_name": "Depeche Mode",
+      "first_name": "Adele",
       "last_name": ""
     },
     "source": {
-      "source_name": "CD"
+      "source_name": "XL Recordings"
     },
     "label": {
-      "title": "Violator",
+      "title": "21",
       "color": "Purple"
     },
-    "publish_date": 1990,
+    "publish_date": 2011,
+    "on_spotify": true
+  },
+  {
+    "genre": {
+      "genre_name": "Hip-Hop"
+    },
+    "author": {
+      "first_name": "Kendrick Lamar",
+      "last_name": ""
+    },
+    "source": {
+      "source_name": "Top Dawg Entertainment"
+    },
+    "label": {
+      "title": "To Pimp a Butterfly",
+      "color": "Orange"
+    },
+    "publish_date": 2015,
+    "on_spotify": true
+  },
+  {
+    "genre": {
+      "genre_name": "Pop"
+    },
+    "author": {
+      "first_name": "Ed Sheeran",
+      "last_name": ""
+    },
+    "source": {
+      "source_name": "Atlantic Records"
+    },
+    "label": {
+      "title": "÷ (Divide)",
+      "color": "Gold"
+    },
+    "publish_date": 2017,
     "on_spotify": true
   },
   {
@@ -94,125 +166,17 @@
       "genre_name": "Rock"
     },
     "author": {
-      "first_name": "The Rolling Stones",
+      "first_name": "Coldplay",
       "last_name": ""
     },
     "source": {
-      "source_name": "CD"
+      "source_name": "Parlophone"
     },
     "label": {
-      "title": "Steel Wheels",
+      "title": "A Rush of Blood to the Head",
       "color": "Silver"
-    },
-    "publish_date": 1989,
-    "on_spotify": true
-  },
-  {
-    "genre": {
-      "genre_name": "Pop"
-    },
-    "author": {
-      "first_name": "Paul Simon",
-      "last_name": ""
-    },
-    "source": {
-      "source_name": "CD"
-    },
-    "label": {
-      "title": "The Rhythm of the Saints",
-      "color": "Gold"
-    },
-    "publish_date": 1990,
-    "on_spotify": true
-  },
-  {
-    "genre": {
-      "genre_name": "Rap"
-    },
-    "author": {
-      "first_name": "Public Enemy",
-      "last_name": ""
-    },
-    "source": {
-      "source_name": "CD"
-    },
-    "label": {
-      "title": "Fear of a Black Planet",
-      "color": "White"
-    },
-    "publish_date": 1990,
-    "on_spotify": true
-  },
-  {
-    "genre": {
-      "genre_name": "Pop"
-    },
-    "author": {
-      "first_name": "Phil Collins",
-      "last_name": ""
-    },
-    "source": {
-      "source_name": "CD"
-    },
-    "label": {
-      "title": "...But Seriously",
-      "color": "Orange"
-    },
-    "publish_date": 1989,
-    "on_spotify": true
-  },
-  {
-    "genre": {
-      "genre_name": "Jazz Folk Fusion"
-    },
-    "author": {
-      "first_name": "Norah Jones",
-      "last_name": ""
-    },
-    "source": {
-      "source_name": "CD"
-    },
-    "label": {
-      "title": "Come away with me",
-      "color": "Dark Blue"
     },
     "publish_date": 2002,
     "on_spotify": true
-  },
-  {
-    "genre": {
-      "genre_name": "Dance"
-    },
-    "author": {
-      "first_name": "Lady Gaga",
-      "last_name": ""
-    },
-    "source": {
-      "source_name": "iTunes"
-    },
-    "label": {
-      "title": "Paparassi",
-      "color": "Yellow"
-    },
-    "publish_date": 2010,
-    "on_spotify": true
-  },
-  {
-    "genre": {
-      "genre_name": "Noise Metal"
-    },
-    "author": {
-      "first_name": "Brutal Display of Power",
-      "last_name": ""
-    },
-    "source": {
-      "source_name": "Black Market"
-    },
-    "label": {
-      "title": "Noise is my passion",
-      "color": "Black"
-    },
-    "publish_date": 1989,
-    "on_spotify": false
   }
 ]
