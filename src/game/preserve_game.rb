@@ -1,22 +1,22 @@
 require 'json'
 
-class PreserveGameAlbums
-  def gets_game_albums
-    return unless File.exist?('./src/game/game_albums.json')
+class PreserveGames
+  def gets_games
+    return unless File.exist?('./src/game/games.json')
 
-    saved_game_albums = []
-    file = File.read('./src/game/game_albums.json')
+    saved_games = []
+    file = File.read('./src/game/games.json')
     data_hashes = JSON.parse(file)
-    data_hashes.each do |game_album|
-      saved_game_albums << GameAlbum.from_hash(game_album)
+    data_hashes.each do |game|
+      saved_games << Game.from_hash(game)
     end
-    saved_game_albums
+    saved_games
   end
 
-  def save_game_albums(game_albums)
-    return if game_albums.empty?
+  def save_games(games)
+    return if games.empty?
 
-    data_hashes = game_albums.map(&:to_hash)
-    File.write('./src/game/game_albums.json', JSON.pretty_generate(data_hashes))
+    data_hashes = games.map(&:to_hash)
+    File.write('./src/game/games.json', JSON.pretty_generate(data_hashes))
   end
 end

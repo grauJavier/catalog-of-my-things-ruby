@@ -1,12 +1,12 @@
-require_relative 'item'
+require_relative '../item'
 
 class Game < Item
   attr_accessor :multiplayer, :last_played_at
 
-  def initialize(multiplayer, last_played_at, publish_date, id: nil)
+  def initialize(genre, author, source, label, publish_date, multiplayer, last_played_at)
+    super(genre, author, source, label, publish_date)
     @multiplayer = multiplayer
-    @last_played_at = Date.parse(last_played_at)
-    super(publish_date, id: id)
+    @last_played_at = last_played_at
   end
 
   def can_be_archieved?
@@ -31,7 +31,7 @@ class Game < Item
       },
       'publish_date' => @publish_date,
       'multiplayer' => @multiplayer,
-      'last_played_at'=>@last_played_at
+      'last_played_at' => @last_played_at
     }
   end
 
@@ -43,7 +43,7 @@ class Game < Item
       Label.new(hash['label']['title'], hash['label']['color']),
       hash['publish_date'],
       hash['multiplayer'],
-      hash['last_played_at'],
+      hash['last_played_at']
     )
   end
 end

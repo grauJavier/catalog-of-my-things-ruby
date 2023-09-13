@@ -1,0 +1,40 @@
+[
+  {
+    "genre": {
+      "genre_name": "adlkfj"
+    },
+    "author": {
+      "first_name": "dlkfjlds",
+      "last_name": "lskdfjdl"
+    },
+    "source": {
+      "source_name": "flkjsdf"
+    },
+    "label": {
+      "title": "kldjflkd",
+      "color": "lkjflkds"
+    },
+    "publish_date": 2002,
+    "multiplayer": true,
+    "last_played_at": "2003/03/03"
+  },
+  {
+    "genre": {
+      "genre_name": "dflkjsld"
+    },
+    "author": {
+      "first_name": "lskdjflkdf",
+      "last_name": "sldkfjlskdf"
+    },
+    "source": {
+      "source_name": "sldfkjsdlkf"
+    },
+    "label": {
+      "title": "jdflkjsdlf",
+      "color": "salfkjd"
+    },
+    "publish_date": 2002,
+    "multiplayer": true,
+    "last_played_at": "2002/03/03"
+  }
+]
