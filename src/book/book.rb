@@ -50,16 +50,22 @@ class Book < Item
 end
 
 # book_params = {
-#   genre: 'genre',
-#   author: 'author',
-#   source: 'source',
-#   label: 'label',
-#   publish_date: '2023-09-13',
-#   publisher: 'HarperCollins',
-#   cover_state: 'good'
+# genre: 'genre',
+# author: 'author',
+# source: 'source',
+# label: 'label',
+# publish_date: 2000,
+# publisher: 'HarperCollins',
+# cover_state: 'good'
 # }
 
 # book = Book.new(book_params)
+
 # p book
 # <Book:0x00007f40a43655b0 @genre="genre", @author="author", @source="source", @label="label",
 # @publish_date="2023-09-13", @archived=false, @id=143, @publisher="HarperCollins", @cover_state="good">
+
+# p book.can_be_archived?
+# true
+
+# IMPORTANT: despite of can_be_archived? returning true, the book is not archived yet
