@@ -3,7 +3,7 @@ require_relative 'src/genre'
 require_relative 'src/label'
 require_relative 'src/source'
 require_relative 'src/item'
-
+require_relative 'src/book/book'
 require_relative 'src/music_album/music_album'
 require_relative 'src/music_album/preserve_music_albums'
 require_relative 'src/preserve_genres'
@@ -18,6 +18,7 @@ class App
     @music_albums = PreserveMusicAlbums.new.gets_music_albums || []
     @genres = PreserveGenres.new.gets_genres || []
     @movie = PreserveMovies.new.gets_movies || []
+    @books = []
   end
 
   def add_genre
@@ -205,6 +206,52 @@ class App
       end
     end
   end
+
+  ########################################## dani code start ##########################################
+  def add_a_book
+    add_genre
+    add_author('book')
+    add_source
+    add_label
+    print 'Publish Date (YEAR): '
+    publish_date = gets.chomp
+
+    if publish_date.match?(/\A\d+\z/)
+      publish_date = publish_date.to_i
+    else
+      puts "ERROR: Invalid answer. Value set to 'Unkown'"
+      publish_date = 0
+    end
+
+    print 'Publisher: '
+    publisher = gets.chomp
+
+    print 'Cover state: '
+    cover_state = gets.chomp
+
+    book_params = {
+      genre: @genre,
+      author: @author,
+      source: @source,
+      label: @label,
+      publish_date: publish_date,
+      publisher: publisher,
+      cover_state: cover_state
+    }
+
+    @books.push(Book.new(book_params))
+    puts 'Book added successfully!'
+  end
+
+  def list_all_books
+    puts 'List all books dani'
+  end
+
+  def list_all_labels
+    puts 'List all labels dani'
+  end
+
+  ########################################## dani code end ##########################################
 
   def quit
     PreserveMusicAlbums.new.save_music_albums(@music_albums)
