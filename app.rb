@@ -211,8 +211,6 @@ class App
     end
   end
 
-
-
   def add_a_movie
     add_genre
 
@@ -337,43 +335,29 @@ class App
     puts 'Game added successfully!'
   end
 
-
-  
   def list_all_games
     if @games.empty?
-  
       puts "\nNo games yet"
-  
     else
-  
       puts "\nGames:"
-  
       @games.each_with_index do |game, index|
         title = game.label.title
-  
         author = "#{game.author.first_name[0].capitalize}. #{game.author.last_name}"
-  
         multiplayer = game.multiplayer
-  
         last_played_at = game.last_played_at
-  
-        output = "#{index}: TITLE: #{title} | AUTHOR: #{author} | MULTIPLAYER: #{multiplayer} |  LAST PLAYED AT: #{last_played_at} |"
-  
-        output + if game.publish_date.zero?
-  
-                   "RELEASE DATE: 'Unknown'"
-  
-                 else
-  
-                   "RELEASE DATE: #{game.publish_date}"
-  
-                 end
+        release_date = if game.publish_date.zero?
+                         'Unknown'
+                       else
+                         game.publish_date
+                       end
+
+        output = "#{index}: TITLE: #{title} | AUTHOR: #{author} | MULTIPLAYER: #{multiplayer}
+        |  LAST PLAYED AT: #{last_played_at} | RELEASE DATE: #{release_date}"
+
+        puts output
       end
-  
     end
   end
-  
-
 
   def list_all_sources
     if @movie.empty?
