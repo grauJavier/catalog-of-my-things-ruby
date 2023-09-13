@@ -38,5 +38,5 @@ CREATE TABLE items (
 -- Create a table for the Movie class (Child class of Item)
 CREATE TABLE movies (
     item_id INT PRIMARY KEY REFERENCES items(id),
-    silet BOOLEAN
+    silent BOOLEAN
 );
