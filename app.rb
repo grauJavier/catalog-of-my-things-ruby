@@ -101,7 +101,7 @@ class App
                     "RELEASE DATE: #{movie.publish_date} | "
                   end
 
-                  output += if movie.silet== true
+        output += if movie.silet == true
                     'SILET: Yes'
                   else
                     'SILET: No'

@@ -10,7 +10,7 @@ class Movie < Item
   end
 
   def can_be_archived?
-   super && @silet == true
+    super && @silet == true
   end
 
   def to_hash
@@ -30,10 +30,10 @@ class Movie < Item
         'color' => @label.color
       },
       'publish_date' => @publish_date,
-      'silet'=> @silet
+      'silet' => @silet
     }
   end
-  
+
   def self.from_hash(hash)
     new(
       Genre.new(hash['genre']['genre_name']),
