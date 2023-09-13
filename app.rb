@@ -19,6 +19,7 @@ class App
     @genres = PreserveGenres.new.gets_genres || []
     @movie = PreserveMovies.new.gets_movies || []
     @books = []
+    @labels = []
   end
 
   def add_genre
@@ -58,11 +59,15 @@ class App
   def add_label
     print 'Title: '
     title = gets.chomp
+    @genres << @genre
 
     print 'Color: '
     color = gets.chomp
 
     @label = Label.new(title, color)
+
+    return if @labels.any? { |label| label.title == title }
+    @labels << @label    
   end
 
   def list_all_music_albums
@@ -244,11 +249,48 @@ class App
   end
 
   def list_all_books
-    puts 'List all books dani'
+    if @books.empty?
+      puts "\nNo books yet"
+    else
+      puts "\nBooks:"
+      @books.each_with_index do |book, index|
+        title = book.label.title
+        author = book.author.first_name + ' ' + book.author.last_name
+        genre = book.genre.genre_name
+
+        output = "#{index}: TITLE: #{title} | AUTHOR: #{author} | GENRE: #{genre} | "
+        output += if book.publish_date.zero?
+                    "RELEASE DATE: 'Unknown' | "
+                  else
+                    "RELEASE DATE: #{book.publish_date} | "
+                  end
+
+        output += if book.publisher.empty?
+                    "PUBLISHER: 'Unknown' | "
+                  else
+                    "PUBLISHER: #{book.publisher} | "
+                  end
+
+        output += if book.cover_state.empty?
+                    'COVER STATE: Unknown'
+                  else
+                    "COVER STATE: #{book.cover_state}"
+                  end
+
+        puts output
+      end
+    end
   end
 
   def list_all_labels
-    puts 'List all labels dani'
+    if @labels.empty?
+      puts "\nNo labels yet"
+    else
+      puts "\nLabels:"
+      @labels.each_with_index do |label, index|
+        puts "#{index + 1}: #{label.title} | #{label.color}"
+      end
+    end
   end
 
   ########################################## dani code end ##########################################
