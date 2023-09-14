@@ -1,9 +1,9 @@
-require_relative '../src/book/book'
 require_relative '../src/item'
 require_relative '../src/genre'
 require_relative '../src/author'
 require_relative '../src/label'
 require_relative '../src/source'
+require_relative '../src/book/book'
 describe Book do
   let(:genre) { Genre.new('Magical Realism') }
   let(:author) { Author.new('Gabriel', 'García Márquez') }
