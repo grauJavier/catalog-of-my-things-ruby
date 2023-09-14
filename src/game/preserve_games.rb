@@ -2,10 +2,12 @@ require 'json'
 
 class PreserveGames
   def gets_games
-    return unless File.exist?('./src/game/games.json')
+    return [] unless File.exist?('./src/game/games.json')
 
     saved_games = []
     file = File.read('./src/game/games.json')
+    return [] if file.empty?
+
     data_hashes = JSON.parse(file)
     data_hashes.each do |game|
       saved_games << Game.from_hash(game)

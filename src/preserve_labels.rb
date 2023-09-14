@@ -7,6 +7,8 @@ class PreserveLabels
 
     labels = []
     file = File.read('./src/labels.json')
+    return [] if file.empty?
+
     labels_data = JSON.parse(file)
 
     labels_data['labels'].each do |label|

@@ -2,10 +2,12 @@ require 'json'
 
 class PreserveMusicAlbums
   def gets_music_albums
-    return unless File.exist?('./src/music_album/music_albums.json')
+    return [] unless File.exist?('./src/music_album/music_albums.json')
 
     saved_music_albums = []
     file = File.read('./src/music_album/music_albums.json')
+    return [] if file.empty?
+
     data_hashes = JSON.parse(file)
     data_hashes.each do |music_album|
       saved_music_albums << MusicAlbum.from_hash(music_album)
