@@ -25,14 +25,14 @@ describe Label do
     it 'adds an item to the label' do
       item = Item.new('Fiction', 'Daniel Morillo', 'Library', label, 2022)
       label.add_item(item)
-      
+
       expect(label.items).to include(item)
     end
 
     it 'sets the label of the added item to itself' do
       item = Item.new('Fiction', 'Daniel Morillo', 'Library', label, 2022)
       label.add_item(item)
-      
+
       expect(item.label).to eq(label)
     end
 
