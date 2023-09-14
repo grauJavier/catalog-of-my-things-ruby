@@ -7,6 +7,8 @@ class PreserveAuthors
 
     authors = []
     file = File.read('./src/authors.json')
+    return [] if file.empty?
+
     authors_data = JSON.parse(file)
 
     authors_data['authors'].each do |author|

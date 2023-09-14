@@ -53,7 +53,7 @@ in the future to storage the data.
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-This project doesn't have a live demo yet
+To watch a live video and see how the program works, [Click Here!](https://youtu.be/MgHjX2XFI2I)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
