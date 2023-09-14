@@ -10,7 +10,7 @@ class Game < Item
   end
 
   def can_be_archieved?
-    Date.today.year - last_played_at.year > 2
+    super && (Date.today.year - last_played_at.year > 2)
   end
 
   def to_hash
