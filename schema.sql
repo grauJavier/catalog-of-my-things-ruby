@@ -48,3 +48,10 @@ CREATE TABLE Author (
     items INTEGER,
     PRIMARY KEY (id)
 );
+
+CREATE INDEX idx_genre_id ON Item (genre_id);
+CREATE INDEX idx_author_id ON Item (author_id);
+CREATE INDEX idx_label_id ON Item (label_id);
+CREATE INDEX idx_book_item_id ON Book (item_id);
+CREATE INDEX idx_music_album_item_id ON MusicAlbum (item_id);
+CREATE INDEX idx_games_item_id ON Games (item_id);
