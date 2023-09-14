@@ -236,7 +236,7 @@ class App
     print 'Cover state: '
     cover_state = gets.chomp.to_s
 
-    book_params = {
+    args = {
       genre: @genre,
       author: @author,
       source: @source,
@@ -246,7 +246,7 @@ class App
       cover_state: cover_state
     }
 
-    @books.push(Book.new(book_params))
+    @books.push(Book.new(args))
     puts 'Book added successfully!'
   end
 
@@ -306,7 +306,18 @@ class App
 
     print 'When was the last time played: '
     last_played_at = gets.chomp
-    @games.push(Game.new(@genre, @author, @source, @label, @publish_date, multiplayer, last_played_at))
+
+    args = {
+      genre: @genre,
+      author: @author,
+      source: @source,
+      label: @label,
+      publish_date: @publish_date,
+      multiplayer: multiplayer,
+      last_played_at: last_played_at
+    }
+
+    @games.push(Game.new(args))
     puts 'Game added successfully!'
   end
 

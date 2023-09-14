@@ -188,5 +188,24 @@
     "publish_date": 2016,
     "multiplayer": false,
     "last_played_at": 2018
+  },
+  {
+    "genre": {
+      "genre_name": "game genre"
+    },
+    "author": {
+      "first_name": "game author first name",
+      "last_name": "game author last name"
+    },
+    "source": {
+      "source_name": "game source"
+    },
+    "label": {
+      "title": "game title",
+      "color": "game color"
+    },
+    "publish_date": 2000,
+    "multiplayer": true,
+    "last_played_at": 2010
   }
 ]
