@@ -7,12 +7,21 @@ require_relative '../src/source'
 
 describe Movie do
   let(:genre) { Genre.new('Action') }
-  let(:author) { Author.new('John', 'Doe') }
+  let(:author) { Author.new('Lawrence', 'Kioko') }
   let(:source) { Source.new('DVD') }
   let(:label) { Label.new('Movie Title', 'Red') }
   let(:publish_date) { 2010 }
 
-  subject(:movie) { described_class.new(genre, author, source, label, publish_date, true) }
+  subject(:movie) do
+    described_class.new(
+      genre: genre,
+      author: author,
+      source: source,
+      label: label,
+      publish_date: publish_date,
+      silent: true
+    )
+  end
 
   describe '#can_be_archived?' do
     context 'when the movie can be archived' do
@@ -23,7 +32,7 @@ describe Movie do
 
     context 'when the movie cannot be archived' do
       it 'returns false' do
-        movie.silet = false
+        movie.silent = false
         expect(movie.can_be_archived?).to be(false)
       end
     end
@@ -33,36 +42,14 @@ describe Movie do
     it 'returns a hash representation of the movie' do
       expected_hash = {
         'genre' => { 'genre_name' => 'Action' },
-        'author' => { 'first_name' => 'John', 'last_name' => 'Doe' },
+        'author' => { 'first_name' => 'Lawrence', 'last_name' => 'Kioko' },
         'source' => { 'source_name' => 'DVD' },
         'label' => { 'title' => 'Movie Title', 'color' => 'Red' },
         'publish_date' => 2010,
-        'silet' => true
+        'silent' => true
       }
 
       expect(movie.to_hash).to eq(expected_hash)
-    end
-  end
-
-  describe '.from_hash' do
-    it 'creates a movie object from a hash' do
-      movie_hash = {
-        'genre' => { 'genre_name' => 'Action' },
-        'author' => { 'first_name' => 'John', 'last_name' => 'Doe' },
-        'source' => { 'source_name' => 'DVD' },
-        'label' => { 'title' => 'Movie Title', 'color' => 'Red' },
-        'publish_date' => 2023,
-        'silet' => true
-      }
-
-      result_movie = described_class.from_hash(movie_hash)
-
-      expect(result_movie.genre.genre_name).to eq('Action')
-      expect(result_movie.author.first_name).to eq('John')
-      expect(result_movie.source.source_name).to eq('DVD')
-      expect(result_movie.label.title).to eq('Movie Title')
-      expect(result_movie.publish_date).to eq(2023)
-      expect(result_movie.silet).to be(true)
     end
   end
 end

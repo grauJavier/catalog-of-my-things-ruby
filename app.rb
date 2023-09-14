@@ -233,7 +233,7 @@ def list_all_sources
 end
 
 class App
-  attr_accessor :music_albums, :movies, :genres, :sources, :games, :books, :labels, :authors
+  attr_accessor :books, :music_albums, :movies, :games, :genres, :labels, :authors, :sources
 
   def initialize
     load_books
