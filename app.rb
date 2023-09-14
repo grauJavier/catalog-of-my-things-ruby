@@ -113,7 +113,7 @@ end
 
 def list_all_books
   if @books.empty?
-    puts "\nNo books yet"
+    puts "\nSorry, you haven't added any book yet"
   else
     puts "\nBooks:"
     @books.each_with_index do |book, index|
@@ -132,7 +132,7 @@ end
 
 def list_all_music_albums
   if @music_albums.empty?
-    puts 'No albums yet'
+    puts "\nSorry, you have't added any music albums yet"
   else
     puts 'Albums:'
     @music_albums.each_with_index do |music_album, index|
@@ -150,7 +150,7 @@ end
 
 def list_all_movies
   if @movies.empty?
-    puts "\nNo movies yet"
+    puts "\nSorry, you have't added any movies yet"
   else
     puts "\nMovies:"
     @movies.each_with_index do |movie, index|
@@ -168,7 +168,7 @@ end
 
 def list_all_games
   if @games.empty?
-    puts 'No games yet'
+    puts "\nSorry, you have't added any games yet"
   else
     puts 'Games:'
     @games.each_with_index do |game, index|
@@ -189,7 +189,7 @@ end
 
 def list_all_genres
   if @genres.empty?
-    puts 'No genres yet'
+    puts "\nSorry, you have't added any genres yet"
   else
     puts 'Genres:'
     @genres.each_with_index do |genre, index|
@@ -200,7 +200,7 @@ end
 
 def list_all_labels
   if @labels.empty?
-    puts "\nNo labels yet"
+    puts "\nSorry, you have't added any labels yet"
   else
     puts "\nLabels:"
     @labels.each_with_index do |label, index|
@@ -211,7 +211,7 @@ end
 
 def list_all_authors
   if @authors.empty?
-    puts 'No authors yet'
+    puts "\nSorry, you have't added any authors yet"
   else
     puts 'Authors:'
     @authors.each_with_index do |author, index|
@@ -222,7 +222,7 @@ end
 
 def list_all_sources
   if @sources.empty?
-    puts "\nNo movie sources yet"
+    puts "\nSorry, you have't added any sources yet"
   else
     puts "\nSources:"
 
