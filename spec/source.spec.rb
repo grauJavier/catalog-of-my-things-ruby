@@ -39,7 +39,6 @@ describe Source do
         expect { source.add_item(invalid_item) }.to raise_error(TypeError, 'Invalid type, must be an Item instance')
       end
 
-
       it "doesn't add the item to the items array" do
         invalid_item = 'Not an Item instance'
         expect do

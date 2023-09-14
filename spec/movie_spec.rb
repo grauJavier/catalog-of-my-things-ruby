@@ -5,8 +5,6 @@ require_relative '../src/author'
 require_relative '../src/label'
 require_relative '../src/source'
 
-
-
 describe Movie do
   let(:genre) { Genre.new('Action') }
   let(:author) { Author.new('John', 'Doe') }
@@ -30,7 +28,6 @@ describe Movie do
       end
     end
   end
-
 
   describe '#to_hash' do
     it 'returns a hash representation of the movie' do

@@ -284,7 +284,16 @@ class App
       silent = false
     end
 
-    @movies.push(Movie.new(@genre, @author, @source, @label, @publish_date, silent))
+    args = {
+      genre: @genre,
+      author: @author,
+      source: @source,
+      label: @label,
+      publish_date: @publish_date,
+      silent: silent
+    }
+
+    @movies.push(Movie.new(args))
     puts 'Movie added successfully!'
   end
 
