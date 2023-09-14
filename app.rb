@@ -265,7 +265,16 @@ class App
       on_spotify = false
     end
 
-    @music_albums.push(MusicAlbum.new(@genre, @author, @source, @label, @publish_date, on_spotify))
+    args = {
+      genre: @genre,
+      author: @author,
+      source: @source,
+      label: @label,
+      publish_date: @publish_date,
+      on_spotify: on_spotify
+    }
+
+    @music_albums.push(MusicAlbum.new(args))
     puts 'Music Album added successfully!'
   end
 
