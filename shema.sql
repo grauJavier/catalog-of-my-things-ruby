@@ -1,42 +1,50 @@
--- Create a table for the Genre class
-CREATE TABLE genres (
-    id SERIAL PRIMARY KEY,
-    genre_name VARCHAR(255) NOT NULL
+CREATE TABLE Label (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(255),
+    color VARCHAR(20)
 );
 
--- Create a table for the Author class
-CREATE TABLE authors (
-    id SERIAL PRIMARY KEY,
-    first_name VARCHAR(255) NOT NULL,
-    last_name VARCHAR(255) NOT NULL
+CREATE TABLE Genre (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(255)
 );
 
--- Create a table for the Label class
-CREATE TABLE labels (
-    id SERIAL PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
-    color VARCHAR(255) NOT NULL
+CREATE TABLE Item (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    genre_id INT,
+    author_id INT,
+    label_id INT,
+    publish_date DATE,
+    archived BOOLEAN,
+    FOREIGN KEY (genre_id) REFERENCES Genre(id),
+    FOREIGN KEY (author_id) REFERENCES Author(id),
+    FOREIGN KEY (label_id) REFERENCES Label(id)
 );
 
--- Create a table for the Source class
-CREATE TABLE sources (
-    id SERIAL PRIMARY KEY,
-    source_name VARCHAR(255) NOT NULL
+CREATE TABLE Book (
+    item_id INT PRIMARY KEY,
+    publisher VARCHAR(255),
+    cover_state VARCHAR(50),
+    FOREIGN KEY (item_id) REFERENCES Item(id)
 );
 
--- Create a table for the Item class (Parent class)
-CREATE TABLE items (
-    id SERIAL PRIMARY KEY,
-    genre_id INT REFERENCES genres(id),
-    author_id INT REFERENCES authors(id),
-    source_id INT REFERENCES sources(id),
-    label_id INT REFERENCES labels(id),
-    publish_date INT,
-    archived BOOLEAN DEFAULT FALSE
+CREATE TABLE MusicAlbum (
+    item_id INT PRIMARY KEY,
+    on_spotify BOOLEAN,
 );
 
--- Create a table for the Movie class (Child class of Item)
-CREATE TABLE movies (
-    item_id INT PRIMARY KEY REFERENCES items(id),
-    silent BOOLEAN
+CREATE TABLE Games (
+    id INT GENERATED ALWAYS AS IDENTITY,
+    multiplayer BOOLEAN NOT NULL,
+    last_payed_at DATE NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (item_id) REFERENCES Item(id)
+);
+
+CREATE TABLE Author (
+    id INT GENERATED ALWAYS AS IDENTITY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    items INTEGER,
+    PRIMARY KEY (id)
 );
