@@ -4,19 +4,19 @@ class App
   attr_accessor :music_albums, :movies, :genres, :sources, :games, :books, :labels, :authors
 
   def initialize
-    @music_albums = PreserveMusicAlbums.new.gets_music_albums || []
-    @genres = PreserveGenres.new.gets_genres || []
-    @authors = PreserveAuthors.new.gets_authors || []
-    @movies = PreserveMovies.new.gets_movies || []
-    @sources = PreserveSources.new.gets_sources || []
-    @games = PreserveGames.new.gets_games || []
     @books = PreserveBooks.new.gets_books || []
+    @music_albums = PreserveMusicAlbums.new.gets_music_albums || []
+    @movies = PreserveMovies.new.gets_movies || []
+    @games = PreserveGames.new.gets_games || []
+    @genres = PreserveGenres.new.gets_genres || []
     @labels = PreserveLabels.new.gets_labels || []
+    @authors = PreserveAuthors.new.gets_authors || []
+    @sources = PreserveSources.new.gets_sources || []
   end
 
   def add_genre
     print 'Genre: '
-    genre_name = gets.chomp
+    genre_name = gets.chomp.to_s
     @genre = Genre.new(genre_name)
     return if @genres.any? { |genre| genre.genre_name == genre_name }
 
@@ -26,31 +26,32 @@ class App
   def add_author(item)
     if item == 'music_album'
       print 'Artist: '
-      first_name = gets.chomp
+      first_name = gets.chomp.to_s
       @author = Author.new(first_name, '')
     elsif item == 'movie'
       print "Director's First Name: "
-      first_name = gets.chomp
+      first_name = gets.chomp.to_s
 
       print "Director's Last Name: "
-      last_name = gets.chomp
+      last_name = gets.chomp.to_s
 
       @author = Author.new(first_name, last_name)
     else
       print 'Author First Name: '
-      first_name = gets.chomp
+      first_name = gets.chomp.to_s
       print 'Author Last Name: '
-      last_name = gets.chomp
+      last_name = gets.chomp.to_s
       @author = Author.new(first_name, last_name)
     end
 
-      return if @authors.any? { |author| author.first_name + author.last_name == first_name + last_name }
-      @authors << @author
+    return if @authors.any? { |author| author.first_name + author.last_name == first_name.to_s + last_name.to_s }
+
+    @authors << @author
   end
 
   def add_source
     print 'Source: '
-    source_name = gets.chomp
+    source_name = gets.chomp.to_s
     @source = Source.new(source_name)
 
     return if @sources.any? { |source| source.source_name == source_name }
@@ -60,15 +61,52 @@ class App
 
   def add_label
     print 'Title: '
-    title = gets.chomp
+    title = gets.chomp.to_s
     print 'Color: '
-    color = gets.chomp
+    color = gets.chomp.to_s
 
     @label = Label.new(title, color)
 
     return if @labels.any? { |label| label.title + label.color == title + color }
 
     @labels << @label
+  end
+
+  def add_item_properties(item)
+    add_genre
+    add_author(item)
+    add_source
+    add_label
+
+    print 'Publish Date (YEAR): '
+    @publish_date = gets.chomp
+
+    if @publish_date.match?(/\A\d+\z/)
+      @publish_date = @publish_date.to_i
+
+    else
+      puts "ERROR: Invalid answer. Value set to 'Unkown'"
+      @publish_date = 0
+    end
+
+    @item_params = { genre: @genre, author: @author, source: @source,
+                     label: @label, publish_date: @publish_date }
+  end
+
+  def list_all_books
+    if @books.empty?
+      puts "\nNo books yet"
+    else
+      puts "\nBooks:"
+      @books.each_with_index do |book, index|
+        title = book.label.title
+        author = book.author.last_name
+        genre = book.genre.genre_name
+
+        output = "#{index + 1}: TITLE: #{title} | AUTHOR: #{author} | GENRE: #{genre} | RELEASE DATE: #{book.publish_date} | PUBLISHER: #{book.publisher} | COVER STATE: #{book.cover_state}"
+        puts output
+      end
+    end
   end
 
   def list_all_music_albums
@@ -121,73 +159,6 @@ class App
     end
   end
 
-  def add_a_movie
-    add_genre
-    add_author('movie')
-    add_source
-    add_label
-
-    print 'Publish Date (YEAR): '
-    publish_date = gets.chomp
-
-    if publish_date.match?(/\A\d+\z/)
-      publish_date = publish_date.to_i
-
-    else
-      puts "ERROR: Invalid answer. Value set to 'Unkown'"
-      publish_date = 0
-    end
-
-    print 'Is silent (Y/N): '
-    silent = gets.chomp.downcase
-
-    if silent == 'y'
-      silent = true
-    elsif silent == 'n'
-      silent = false
-    else
-      puts "ERROR: Invalid answer. Value set to 'N'"
-      silent = false
-    end
-
-    @movies.push(Movie.new(@genre, @author, @source, @label, publish_date, silent))
-    puts 'Movie added successfully!'
-  end
-
-  def add_a_game
-    add_genre
-    add_author('game')
-    add_source
-    add_label
-    print 'Publish Date (YEAR): '
-    publish_date = gets.chomp
-
-    if publish_date.match?(/\A\d+\z/)
-      publish_date = publish_date.to_i
-    else
-      puts "ERROR: Invalid answer. Value set to 'Unkown'"
-      publish_date = 0
-    end
-
-    print 'Is it multiplayer (Y/N): '
-    multiplayer = gets.chomp.downcase
-
-    if multiplayer == 'y'
-      multiplayer = true
-
-    elsif multiplayer == 'n'
-      multiplayer = false
-    else
-      puts "ERROR: Invalid answer. Value set to 'N'"
-      multiplayer = false
-    end
-
-    print 'When was the last time played: '
-    last_played_at = gets.chomp.downcase
-    @games.push(Game.new(@genre, @author, @source, @label, publish_date, multiplayer, last_played_at))
-    puts 'Game added successfully!'
-  end
-
   def list_all_games
     if @games.empty?
       puts 'No games yet'
@@ -211,48 +182,6 @@ class App
     end
   end
 
-  def list_all_sources
-    if @sources.empty?
-      puts "\nNo movie sources yet"
-    else
-      puts "\nSources:"
-
-      @sources.each_with_index do |source, index|
-        puts "#{index + 1}: #{source.source_name}"
-      end
-    end
-  end
-
-  def add_a_music_album
-    add_genre
-    add_author('music_album')
-    add_source
-    add_label
-    print 'Publish Date (YEAR): '
-    publish_date = gets.chomp
-    if publish_date.match?(/\A\d+\z/)
-      publish_date = publish_date.to_i
-    else
-      puts "ERROR: Invalid answer. Value set to 'Unkown'"
-      publish_date = 0
-    end
-
-    print 'Available on Spotify (Y/N): '
-    on_spotify = gets.chomp.downcase
-
-    if on_spotify == 'y'
-      on_spotify = true
-    elsif on_spotify == 'n'
-      on_spotify = false
-    else
-      puts "ERROR: Invalid answer. Value set to 'N'"
-      on_spotify = false
-    end
-
-    @music_albums.push(MusicAlbum.new(@genre, @author, @source, @label, publish_date, on_spotify))
-    puts 'Music Album added successfully!'
-  end
-
   def list_all_genres
     if @genres.empty?
       puts 'No genres yet'
@@ -260,57 +189,6 @@ class App
       puts 'Genres:'
       @genres.each_with_index do |genre, index|
         puts "#{index + 1}: #{genre.genre_name}"
-      end
-    end
-  end
-
-  def add_a_book
-    add_genre
-    add_author('book')
-    add_source
-    add_label
-    print 'Publish Date (YEAR): '
-    publish_date = gets.chomp
-
-    if publish_date.match?(/\A\d+\z/)
-      publish_date = publish_date.to_i
-    else
-      puts "ERROR: Invalid answer. Value set to 'Unkown'"
-      publish_date = 0
-    end
-
-    print 'Publisher: '
-    publisher = gets.chomp
-
-    print 'Cover state: '
-    cover_state = gets.chomp
-
-    book_params = {
-      genre: @genre,
-      author: @author,
-      source: @source,
-      label: @label,
-      publish_date: publish_date,
-      publisher: publisher,
-      cover_state: cover_state
-    }
-
-    @books.push(Book.new(book_params))
-    puts 'Book added successfully!'
-  end
-
-  def list_all_books
-    if @books.empty?
-      puts "\nNo books yet"
-    else
-      puts "\nBooks:"
-      @books.each_with_index do |book, index|
-        title = book.label.title
-        author = book.author.last_name
-        genre = book.genre.genre_name
-
-        output = "#{index + 1}: TITLE: #{title} | AUTHOR: #{author} | GENRE: #{genre} | RELEASE DATE: #{book.publish_date} | PUBLISHER: #{book.publisher} | COVER STATE: #{book.cover_state}"
-        puts output
       end
     end
   end
@@ -337,15 +215,110 @@ class App
     end
   end
 
+  def list_all_sources
+    if @sources.empty?
+      puts "\nNo movie sources yet"
+    else
+      puts "\nSources:"
+
+      @sources.each_with_index do |source, index|
+        puts "#{index + 1}: #{source.source_name}"
+      end
+    end
+  end
+
+  def add_a_book
+    add_item_properties('book')
+
+    print 'Publisher: '
+    publisher = gets.chomp.to_s
+
+    print 'Cover state: '
+    cover_state = gets.chomp.to_s
+
+    book_params = {
+      genre: @genre,
+      author: @author,
+      source: @source,
+      label: @label,
+      publish_date: @publish_date,
+      publisher: publisher,
+      cover_state: cover_state
+    }
+
+    @books.push(Book.new(book_params))
+    puts 'Book added successfully!'
+  end
+
+  def add_a_music_album
+    add_item_properties('music_album')
+
+    print 'Available on Spotify (Y/N): '
+    on_spotify = gets.chomp.downcase
+
+    if on_spotify == 'y'
+      on_spotify = true
+    elsif on_spotify == 'n'
+      on_spotify = false
+    else
+      puts "ERROR: Invalid answer. Value set to 'N'"
+      on_spotify = false
+    end
+
+    @music_albums.push(MusicAlbum.new(@genre, @author, @source, @label, @publish_date, on_spotify))
+    puts 'Music Album added successfully!'
+  end
+
+  def add_a_movie
+    add_item_properties('movie')
+
+    print 'Is silent (Y/N): '
+    silent = gets.chomp.downcase
+
+    if silent == 'y'
+      silent = true
+    elsif silent == 'n'
+      silent = false
+    else
+      puts "ERROR: Invalid answer. Value set to 'N'"
+      silent = false
+    end
+
+    @movies.push(Movie.new(@genre, @author, @source, @label, @publish_date, silent))
+    puts 'Movie added successfully!'
+  end
+
+  def add_a_game
+    add_item_properties('game')
+
+    print 'Is it multiplayer (Y/N): '
+    multiplayer = gets.chomp.downcase
+
+    if multiplayer == 'y'
+      multiplayer = true
+
+    elsif multiplayer == 'n'
+      multiplayer = false
+    else
+      puts "ERROR: Invalid answer. Value set to 'N'"
+      multiplayer = false
+    end
+
+    print 'When was the last time played: '
+    last_played_at = gets.chomp
+    @games.push(Game.new(@genre, @author, @source, @label, @publish_date, multiplayer, last_played_at))
+    puts 'Game added successfully!'
+  end
+
   def quit
+    PreserveBooks.new.save_books(@books)
     PreserveMusicAlbums.new.save_music_albums(@music_albums)
-    PreserveGenres.new.save_genres(@genres)
-    PreserveAuthors.new.save_authors(@authors)
     PreserveMovies.new.save_movies(@movies)
     PreserveGames.new.save_games(@games)
-    PreserveSources.new.save_sources(@sources)
-    PreserveBooks.new.save_books(@books)
+    PreserveGenres.new.save_genres(@genres)
     PreserveLabels.new.save_labels(@labels)
+    PreserveAuthors.new.save_authors(@authors)
+    PreserveSources.new.save_sources(@sources)
     puts 'Thank you for using this app!'
     exit
   end
