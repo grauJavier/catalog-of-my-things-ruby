@@ -188,5 +188,24 @@
     "publish_date": 2018,
     "publisher": "Crown Publishing",
     "cover_state": "Excellent"
+  },
+  {
+    "genre": {
+      "genre_name": "1"
+    },
+    "author": {
+      "first_name": "1",
+      "last_name": "1"
+    },
+    "source": {
+      "source_name": "1"
+    },
+    "label": {
+      "title": "1",
+      "color": "1"
+    },
+    "publish_date": 1,
+    "publisher": "1",
+    "cover_state": "1"
   }
 ]

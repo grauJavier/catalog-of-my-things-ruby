@@ -1,17 +1,49 @@
 require_relative 'helper'
 
+def load_books
+  @books = PreserveBooks.new.gets_books || []
+end
+
+def load_music_albums
+  @music_albums = PreserveMusicAlbums.new.gets_music_albums || []
+end
+
+def load_movies
+  @movies = PreserveMovies.new.gets_movies || []
+end
+
+def load_games
+  @games = PreserveGames.new.gets_games || []
+end
+
+def load_genres
+  @genres = PreserveGenres.new.gets_genres || []
+end
+
+def load_labels
+  @labels = PreserveLabels.new.gets_labels || []
+end
+
+def load_authors
+  @authors = PreserveAuthors.new.gets_authors || []
+end
+
+def load_sources
+  @sources = PreserveSources.new.gets_sources || []
+end
+
 class App
   attr_accessor :music_albums, :movies, :genres, :sources, :games, :books, :labels, :authors
 
   def initialize
-    @books = PreserveBooks.new.gets_books || []
-    @music_albums = PreserveMusicAlbums.new.gets_music_albums || []
-    @movies = PreserveMovies.new.gets_movies || []
-    @games = PreserveGames.new.gets_games || []
-    @genres = PreserveGenres.new.gets_genres || []
-    @labels = PreserveLabels.new.gets_labels || []
-    @authors = PreserveAuthors.new.gets_authors || []
-    @sources = PreserveSources.new.gets_sources || []
+    load_books
+    load_music_albums
+    load_movies
+    load_games
+    load_genres
+    load_labels
+    load_authors
+    load_sources
   end
 
   def add_genre
@@ -103,7 +135,10 @@ class App
         author = book.author.last_name
         genre = book.genre.genre_name
 
-        output = "#{index + 1}: TITLE: #{title} | AUTHOR: #{author} | GENRE: #{genre} | RELEASE DATE: #{book.publish_date} | PUBLISHER: #{book.publisher} | COVER STATE: #{book.cover_state}"
+        output = "#{index + 1}: TITLE: #{title} | AUTHOR: #{author} | GENRE: #{genre} | " \
+                 "RELEASE DATE: #{book.publish_date} | PUBLISHER: #{book.publisher} | " \
+                 "COVER STATE: #{book.cover_state}"
+
         puts output
       end
     end
@@ -118,18 +153,11 @@ class App
         title = music_album.label.title
         artist = music_album.author.first_name
         genre = music_album.genre.genre_name
-        output = "#{index + 1}: TITLE: #{title} | ARTIST: #{artist} | GENRE: #{genre} | "
-        output += if music_album.publish_date.zero?
-                    "RELEASE DATE: 'Unknown' | "
-                  else
-                    "RELEASE DATE: #{music_album.publish_date} | "
-                  end
-        output += if music_album.on_spotify == true
-                    'ON SPOTIFY: Yes'
-                  else
-                    'ON SPOTIFY: No'
-                  end
-        puts output
+        release_date = music_album.publish_date.zero? ? 'Unknown' : music_album.publish_date
+        on_spotify = music_album.on_spotify ? 'Yes' : 'No'
+
+        puts "#{index + 1}: TITLE: #{title} | ARTIST: #{artist} | GENRE: #{genre} | " \
+             "RELEASE DATE: #{release_date} | ON SPOTIFY: #{on_spotify}"
       end
     end
   end
@@ -143,18 +171,11 @@ class App
         title = movie.label.title
         artist = "#{movie.author.first_name[0].capitalize}. #{movie.author.last_name}"
         genre = movie.genre.genre_name
-        output = "#{index + 1}: TITLE: #{title} | DIRECTOR: #{artist} | GENRE: #{genre} | "
-        output += if movie.publish_date.zero?
-                    "RELEASE DATE: 'Unknown' | "
-                  else
-                    "RELEASE DATE: #{movie.publish_date} | "
-                  end
-        output += if movie.silent == true
-                    'silent: Yes'
-                  else
-                    'silent: No'
-                  end
-        puts output
+        release_date = movie.publish_date.zero? ? 'Unknown' : movie.publish_date
+        silent = movie.silent ? 'Yes' : 'No'
+
+        puts "#{index + 1}: TITLE: #{title} | DIRECTOR: #{artist} | GENRE: #{genre} | " \
+             "RELEASE DATE: #{release_date} | silent: #{silent}"
       end
     end
   end
@@ -169,13 +190,11 @@ class App
         author = "#{game.author.first_name[0].capitalize}. #{game.author.last_name}"
         multiplayer = game.multiplayer
         last_played_at = game.last_played_at
-        release_date = if game.publish_date.zero?
-                         'Unknown'
-                       else
-                         game.publish_date
-                       end
+        release_date = game.publish_date.zero? ? 'Unknown' : game.publish_date
 
-        output = "#{index + 1}: TITLE: #{title} | AUTHOR: #{author} | MULTIPLAYER: #{multiplayer} |  LAST PLAYED AT: #{last_played_at} | RELEASE DATE: #{release_date}"
+        output = "#{index + 1}: TITLE: #{title} | AUTHOR: #{author} | " \
+                 "MULTIPLAYER: #{multiplayer} | LAST PLAYED AT: #{last_played_at} | " \
+                 "RELEASE DATE: #{release_date}"
 
         puts output
       end
@@ -265,14 +284,8 @@ class App
       on_spotify = false
     end
 
-    args = {
-      genre: @genre,
-      author: @author,
-      source: @source,
-      label: @label,
-      publish_date: @publish_date,
-      on_spotify: on_spotify
-    }
+    args = { genre: @genre, author: @author, source: @source, label: @label, publish_date: @publish_date,
+             on_spotify: on_spotify }
 
     @music_albums.push(MusicAlbum.new(args))
     puts 'Music Album added successfully!'
@@ -293,14 +306,8 @@ class App
       silent = false
     end
 
-    args = {
-      genre: @genre,
-      author: @author,
-      source: @source,
-      label: @label,
-      publish_date: @publish_date,
-      silent: silent
-    }
+    args = { genre: @genre, author: @author, source: @source, label: @label, publish_date: @publish_date,
+             silent: silent }
 
     @movies.push(Movie.new(args))
     puts 'Movie added successfully!'
@@ -325,15 +332,8 @@ class App
     print 'When was the last time played: '
     last_played_at = gets.chomp
 
-    args = {
-      genre: @genre,
-      author: @author,
-      source: @source,
-      label: @label,
-      publish_date: @publish_date,
-      multiplayer: multiplayer,
-      last_played_at: last_played_at
-    }
+    args = { genre: @genre, author: @author, source: @source, label: @label, publish_date: @publish_date,
+             multiplayer: multiplayer, last_played_at: last_played_at }
 
     @games.push(Game.new(args))
     puts 'Game added successfully!'
