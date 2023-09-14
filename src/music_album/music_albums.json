@@ -178,59 +178,5 @@
     },
     "publish_date": 2002,
     "on_spotify": true
-  },
-  {
-    "genre": {
-      "genre_name": "1"
-    },
-    "author": {
-      "first_name": "1",
-      "last_name": ""
-    },
-    "source": {
-      "source_name": "1"
-    },
-    "label": {
-      "title": "1",
-      "color": "1"
-    },
-    "publish_date": 1,
-    "on_spotify": true
-  },
-  {
-    "genre": {
-      "genre_name": "1"
-    },
-    "author": {
-      "first_name": "1",
-      "last_name": ""
-    },
-    "source": {
-      "source_name": "1"
-    },
-    "label": {
-      "title": "1",
-      "color": "1"
-    },
-    "publish_date": 1,
-    "on_spotify": false
-  },
-  {
-    "genre": {
-      "genre_name": "dani"
-    },
-    "author": {
-      "first_name": "dani",
-      "last_name": ""
-    },
-    "source": {
-      "source_name": "dani"
-    },
-    "label": {
-      "title": "dani",
-      "color": "dani"
-    },
-    "publish_date": 2020,
-    "on_spotify": true
   }
 ]
