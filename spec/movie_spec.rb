@@ -7,7 +7,7 @@ require_relative '../src/source'
 
 describe Movie do
   let(:genre) { Genre.new('Action') }
-  let(:author) { Author.new('John', 'Doe') }
+  let(:author) { Author.new('Lawrence', 'Kioko') }
   let(:source) { Source.new('DVD') }
   let(:label) { Label.new('Movie Title', 'Red') }
   let(:publish_date) { 2010 }
@@ -42,7 +42,7 @@ describe Movie do
     it 'returns a hash representation of the movie' do
       expected_hash = {
         'genre' => { 'genre_name' => 'Action' },
-        'author' => { 'first_name' => 'John', 'last_name' => 'Doe' },
+        'author' => { 'first_name' => 'Lawrence', 'last_name' => 'Kioko' },
         'source' => { 'source_name' => 'DVD' },
         'label' => { 'title' => 'Movie Title', 'color' => 'Red' },
         'publish_date' => 2010,
