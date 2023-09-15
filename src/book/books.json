@@ -1,0 +1,192 @@
+[
+  {
+    "genre": {
+      "genre_name": "Mystery"
+    },
+    "author": {
+      "first_name": "Agatha",
+      "last_name": "Christie"
+    },
+    "source": {
+      "source_name": "HarperCollins"
+    },
+    "label": {
+      "title": "Murder on the Orient Express",
+      "color": "Red"
+    },
+    "publish_date": 1990,
+    "publisher": "HarperCollins",
+    "cover_state": "Good"
+  },
+  {
+    "genre": {
+      "genre_name": "Science Fiction"
+    },
+    "author": {
+      "first_name": "Arthur C.",
+      "last_name": "Clarke"
+    },
+    "source": {
+      "source_name": "Gollancz"
+    },
+    "label": {
+      "title": "2001: A Space Odyssey",
+      "color": "Blue"
+    },
+    "publish_date": 1999,
+    "publisher": "Gollancz",
+    "cover_state": "Excellent"
+  },
+  {
+    "genre": {
+      "genre_name": "Fantasy"
+    },
+    "author": {
+      "first_name": "J.K.",
+      "last_name": "Rowling"
+    },
+    "source": {
+      "source_name": "Bloomsbury Publishing"
+    },
+    "label": {
+      "title": "Harry Potter and the Philosopher's Stone",
+      "color": "Green"
+    },
+    "publish_date": 1997,
+    "publisher": "Bloomsbury Publishing",
+    "cover_state": "Very Good"
+  },
+  {
+    "genre": {
+      "genre_name": "Romance"
+    },
+    "author": {
+      "first_name": "Nicholas",
+      "last_name": "Sparks"
+    },
+    "source": {
+      "source_name": "Warner Books"
+    },
+    "label": {
+      "title": "The Notebook",
+      "color": "Pink"
+    },
+    "publish_date": 1996,
+    "publisher": "Warner Books",
+    "cover_state": "Fair"
+  },
+  {
+    "genre": {
+      "genre_name": "Historical Fiction"
+    },
+    "author": {
+      "first_name": "Ken",
+      "last_name": "Follett"
+    },
+    "source": {
+      "source_name": "Macmillan"
+    },
+    "label": {
+      "title": "The Pillars of the Earth",
+      "color": "Brown"
+    },
+    "publish_date": 1989,
+    "publisher": "Macmillan",
+    "cover_state": "Good"
+  },
+  {
+    "genre": {
+      "genre_name": "Thriller"
+    },
+    "author": {
+      "first_name": "Dan",
+      "last_name": "Brown"
+    },
+    "source": {
+      "source_name": "Doubleday"
+    },
+    "label": {
+      "title": "The Da Vinci Code",
+      "color": "Gold"
+    },
+    "publish_date": "2003-03-18",
+    "publisher": "Doubleday",
+    "cover_state": "Excellent"
+  },
+  {
+    "genre": {
+      "genre_name": "Science Fiction"
+    },
+    "author": {
+      "first_name": "Philip K.",
+      "last_name": "Dick"
+    },
+    "source": {
+      "source_name": "Gollancz"
+    },
+    "label": {
+      "title": "Do Androids Dream of Electric Sheep?",
+      "color": "Silver"
+    },
+    "publish_date": 1996,
+    "publisher": "Gollancz",
+    "cover_state": "Very Good"
+  },
+  {
+    "genre": {
+      "genre_name": "Horror"
+    },
+    "author": {
+      "first_name": "Stephen",
+      "last_name": "King"
+    },
+    "source": {
+      "source_name": "Viking Press"
+    },
+    "label": {
+      "title": "It",
+      "color": "Orange"
+    },
+    "publish_date": 1986,
+    "publisher": "Viking Press",
+    "cover_state": "Fair"
+  },
+  {
+    "genre": {
+      "genre_name": "Fantasy"
+    },
+    "author": {
+      "first_name": "George R.R.",
+      "last_name": "Martin"
+    },
+    "source": {
+      "source_name": "Bantam Books"
+    },
+    "label": {
+      "title": "A Game of Thrones",
+      "color": "Black"
+    },
+    "publish_date": 1996,
+    "publisher": "Bantam Books",
+    "cover_state": "Good"
+  },
+  {
+    "genre": {
+      "genre_name": "Non-Fiction"
+    },
+    "author": {
+      "first_name": "Michelle",
+      "last_name": "Obama"
+    },
+    "source": {
+      "source_name": "Crown Publishing"
+    },
+    "label": {
+      "title": "Becoming",
+      "color": "White"
+    },
+    "publish_date": 2018,
+    "publisher": "Crown Publishing",
+    "cover_state": "Excellent"
+  }
+]

@@ -1,0 +1,182 @@
+[
+  {
+    "genre": {
+      "genre_name": "Action"
+    },
+    "author": {
+      "first_name": "James",
+      "last_name": "Cameron"
+    },
+    "source": {
+      "source_name": "20th Century Fox"
+    },
+    "label": {
+      "title": "Avatar",
+      "color": "Blue"
+    },
+    "publish_date": 2009,
+    "silent": false
+  },
+  {
+    "genre": {
+      "genre_name": "Adventure"
+    },
+    "author": {
+      "first_name": "Steven",
+      "last_name": "Spielberg"
+    },
+    "source": {
+      "source_name": "Universal Pictures"
+    },
+    "label": {
+      "title": "Jurassic Park",
+      "color": "Green"
+    },
+    "publish_date": 1993,
+    "silent": false
+  },
+  {
+    "genre": {
+      "genre_name": "Drama"
+    },
+    "author": {
+      "first_name": "Quentin",
+      "last_name": "Tarantino"
+    },
+    "source": {
+      "source_name": "Miramax Films"
+    },
+    "label": {
+      "title": "Pulp Fiction",
+      "color": "Red"
+    },
+    "publish_date": 1994,
+    "silent": false
+  },
+  {
+    "genre": {
+      "genre_name": "Science Fiction"
+    },
+    "author": {
+      "first_name": "Christopher",
+      "last_name": "Nolan"
+    },
+    "source": {
+      "source_name": "Warner Bros. Pictures"
+    },
+    "label": {
+      "title": "Inception",
+      "color": "Black"
+    },
+    "publish_date": 2010,
+    "silent": false
+  },
+  {
+    "genre": {
+      "genre_name": "Comedy"
+    },
+    "author": {
+      "first_name": "Joel",
+      "last_name": "Coen"
+    },
+    "source": {
+      "source_name": "Gramercy Pictures"
+    },
+    "label": {
+      "title": "The Big Lebowski",
+      "color": "Yellow"
+    },
+    "publish_date": 1998,
+    "silent": false
+  },
+  {
+    "genre": {
+      "genre_name": "Horror"
+    },
+    "author": {
+      "first_name": "Jordan",
+      "last_name": "Peele"
+    },
+    "source": {
+      "source_name": "Universal Pictures"
+    },
+    "label": {
+      "title": "Get Out",
+      "color": "Purple"
+    },
+    "publish_date": 2017,
+    "silent": false
+  },
+  {
+    "genre": {
+      "genre_name": "Animation"
+    },
+    "author": {
+      "first_name": "Pete",
+      "last_name": "Docter"
+    },
+    "source": {
+      "source_name": "Walt Disney Pictures"
+    },
+    "label": {
+      "title": "Up",
+      "color": "Orange"
+    },
+    "publish_date": 2009,
+    "silent": false
+  },
+  {
+    "genre": {
+      "genre_name": "Biography"
+    },
+    "author": {
+      "first_name": "David",
+      "last_name": "Fincher"
+    },
+    "source": {
+      "source_name": "Columbia Pictures"
+    },
+    "label": {
+      "title": "The Social Network",
+      "color": "Gold"
+    },
+    "publish_date": 2010,
+    "silent": false
+  },
+  {
+    "genre": {
+      "genre_name": "Romance"
+    },
+    "author": {
+      "first_name": "Richard",
+      "last_name": "Linklater"
+    },
+    "source": {
+      "source_name": "Columbia Pictures"
+    },
+    "label": {
+      "title": "Before Sunrise",
+      "color": "Pink"
+    },
+    "publish_date": 1995,
+    "silent": false
+  },
+  {
+    "genre": {
+      "genre_name": "Thriller"
+    },
+    "author": {
+      "first_name": "David",
+      "last_name": "Fincher"
+    },
+    "source": {
+      "source_name": "Paramount Pictures"
+    },
+    "label": {
+      "title": "Se7en",
+      "color": "Silver"
+    },
+    "publish_date": 1995,
+    "silent": false
+  }
+]
